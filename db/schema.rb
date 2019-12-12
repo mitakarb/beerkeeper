@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_11_14_120559) do
     t.string "location"
     t.string "name"
     t.bigint "organizer_id"
-    t.integer "max_participant"
+    t.integer "max_size"
     t.string "budget"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
