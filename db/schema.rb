@@ -20,13 +20,13 @@ ActiveRecord::Schema.define(version: 2019_11_14_120559) do
     t.datetime "end_at"
     t.string "location"
     t.string "name"
-    t.bigint "created_by_id"
+    t.bigint "organizer_id"
     t.integer "max_participant"
     t.string "budget"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["created_by_id"], name: "index_events_on_created_by_id"
+    t.index ["organizer_id"], name: "index_events_on_organizer_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,5 +35,5 @@ ActiveRecord::Schema.define(version: 2019_11_14_120559) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "events", "users", column: "created_by_id"
+  add_foreign_key "events", "users", column: "organizer_id"
 end

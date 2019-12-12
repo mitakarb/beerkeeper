@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.datetime :end_at
       t.string :location
       t.string :name
-      t.references :created_by, foreign_key: { to_table: :users }
+      t.references :organizer, foreign_key: { to_table: :users }
       t.integer :max_participant
       t.string :budget
       t.text :description
