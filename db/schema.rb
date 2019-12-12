@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2019_11_14_120559) do
     t.datetime "start_at"
     t.datetime "end_at"
     t.string "location"
-    t.string "name"
-    t.bigint "organizer_id"
+    t.string "name", null: false
+    t.bigint "organizer_id", null: false
     t.integer "max_size"
     t.string "budget"
     t.text "description"
