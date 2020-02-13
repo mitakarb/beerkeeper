@@ -1,0 +1,10 @@
+<h1>
+  <%= @event.name %>
+
+<div><%= @event.start_at %></div>
+<div><%= @event.end_at %></div>
+<div><%= @event.location %></div>
+<div><%= @event.organizer_id %></div>
+<div><%= @event.max_size %></div>
+<div><%= @event.budget %></div>
+<div><%= @event.description %></div>
