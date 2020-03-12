@@ -1,0 +1,12 @@
+<h1>
+    イベント一覧
+
+<% @events.each do |event| %>
+  <div>
+    <%= link_to event.name, event %>
+    <%= event.description %>
+
+<div>
+  <%= link_to '新規作成', new_event_path %>
+
+
