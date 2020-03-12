@@ -5,4 +5,7 @@
   <%= link_to event.name, event %>
   <%= event.description %>
 
+<div>
+  <%= link_to '新規作成', new_event_path %>
+
 
