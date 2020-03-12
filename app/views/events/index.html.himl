@@ -1,0 +1,8 @@
+<h1>
+    イベント一覧
+<div>
+  <% @events.each do |event| %>
+  <%= event.name %>
+  <%= event.description %>
+
+
