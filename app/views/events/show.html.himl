@@ -8,3 +8,5 @@
 <div><%= @event.max_size %></div>
 <div><%= @event.budget %></div>
 <div><%= @event.description %></div>
+
+<div><%= link_to 'トップへ戻る', root_path %>
