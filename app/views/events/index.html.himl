@@ -2,7 +2,7 @@
     イベント一覧
 <div>
   <% @events.each do |event| %>
-  <%= event.name %>
+  <%= link_to event.name, event %>
   <%= event.description %>
 
 
