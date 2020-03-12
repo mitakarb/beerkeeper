@@ -9,5 +9,5 @@
 <div><%= @event.budget %></div>
 <div><%= @event.description %></div>
 
-<div><%= link_to 'このイベントを削除', event_path(@event), method: :delete %>
+<div><%= link_to 'このイベントを削除', event_path(@event), method: :delete, data: {confirm: "削除しますか？"} %>
 <div><%= link_to 'トップへ戻る', root_path %>
