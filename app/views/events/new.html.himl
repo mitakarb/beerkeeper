@@ -24,3 +24,6 @@
     <%= form.label :description %>
     <%= form.text_area :description %>
   <%= form.submit %>
+
+<div><%= link_to 'トップへ戻る', root_path %>
+
