@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <div class="d-flex flex-row-reverse bg-light">
+      <% if session[:user_id] %>
+        <%= link_to 'ログアウト', session_path(session[:user_id]), method: :delete %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
