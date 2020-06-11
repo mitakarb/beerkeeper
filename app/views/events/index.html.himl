@@ -5,8 +5,9 @@
   <div>
     <%= link_to event.name, event %>
     <%= event.description %>
+<% end %>
 
-<div>
-  <%= link_to '新規作成', new_event_path %>
-
-
+<% if current_user %>
+  <div>
+    <%= link_to '新規作成', new_event_path %>
+<% end %>
