@@ -13,6 +13,8 @@
     <div class="d-flex flex-row-reverse bg-light">
       <% if current_user %>
         <%= link_to 'ログアウト', session_path(current_user), method: :delete %>
+      <% else %>
+        <%= link_to 'ログイン', login_path %>
       <% end %>
     </div>
     <%= yield %>
