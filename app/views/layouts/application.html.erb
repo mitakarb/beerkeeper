@@ -10,13 +10,23 @@
   </head>
 
   <body>
-    <div class="d-flex flex-row-reverse bg-light">
-      <% if current_user %>
-        <%= link_to 'ログアウト', session_path(current_user), method: :delete %>
-      <% else %>
-        <%= link_to 'ログイン', login_path %>
-      <% end %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">BeerKeeper</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto d-flex flex-row-reverse w-100">
+          <li class="nav-item active">
+            <% if current_user %>
+              <%= link_to 'ログアウト', session_path(current_user), method: :delete %>
+            <% else %>
+              <%= link_to 'ログイン', login_path %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
     </div>
-    <%= yield %>
   </body>
 </html>
