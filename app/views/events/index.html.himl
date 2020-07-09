@@ -1,13 +1,23 @@
 <h1>
     イベント一覧
 
-<% @events.each do |event| %>
-  <div>
-    <%= link_to event.name, event %>
-    <%= event.description %>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">イベント名</th>
+      <th scope="col">説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <th scope="row"><%= event.id %></th>
+        <td><%= link_to event.name, event %></td>
+        <td><%= event.description %></td>
+      </tr>
+    <% end %>
 
 <% if current_user %>
-  <div>
-    <%= link_to '新規作成', new_event_path %>
+  <%= link_to '新規作成', new_event_path, class: "btn btn-primary" %>
 <% end %>
