@@ -1,13 +1,29 @@
 <h1>
   <%= @event.name %>
 
-<div><%= @event.start_at %></div>
-<div><%= @event.end_at %></div>
-<div><%= @event.location %></div>
-<div><%= @event.organizer_id %></div>
-<div><%= @event.max_size %></div>
-<div><%= @event.budget %></div>
-<div><%= @event.description %></div>
+<ul class="list-group">
+  <li class="list-group-item">
+    開始日時: <%= @event.start_at %>
+  </li>
+  <li class="list-group-item">
+    終了日時: <%= @event.end_at %>
+  </li>
+  <li class="list-group-item">
+    開催場所: <%= @event.location %>
+  </li>
+  <li class="list-group-item">
+    主催者: <%= @event.organizer.name %>
+  </li>
+  <li class="list-group-item">
+    参加人数: <%= @event.max_size %>人
+  </li>
+  <li class="list-group-item">
+    参加費: <%= @event.budget %>円
+  </li>
+  <li class="list-group-item">
+    詳細:<br>
+    <%= simple_format @event.description %>
+  </li>
 
 <div><%= link_to '編集', edit_event_path(@event) %>
 <div><%= link_to 'このイベントを削除', event_path(@event), method: :delete, data: {confirm: "削除しますか？"} %>
