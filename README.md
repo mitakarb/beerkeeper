@@ -6,10 +6,9 @@ mitaka.rb で作っているイベント管理アプリです :beers:
 - Rails: 6.0.x
 - DB: postgresql
 
-```
-git clone git@github.com:mitakarb/beerkeeper.git
-cd beerkeeper
-bundle
-yarn
-rails s
+```shell
+$ git clone git@github.com:mitakarb/beerkeeper.git
+$ cd beerkeeper
+$ bin/setup
+$ bin/rails s
 ```
