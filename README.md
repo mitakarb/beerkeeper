@@ -1,24 +1,15 @@
 # README
+mitaka.rb で作っているイベント管理アプリです :beers:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 環境構築
+- Ruby: 2.6.x
+- Rails: 6.0.x
+- DB: postgresql
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+git clone git@github.com:mitakarb/beerkeeper.git
+cd beerkeeper
+bundle
+yarn
+rails s
+```
