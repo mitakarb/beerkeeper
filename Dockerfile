@@ -1,5 +1,5 @@
-FROM ruby:2.6.5-slim-buster
-RUN apt-get update -qq && apt-get install -y \ 
+FROM ruby:2.6.6-slim-buster
+RUN apt-get update -qq && apt-get install -y \
     curl \
     libpq-dev \
     build-essential \
