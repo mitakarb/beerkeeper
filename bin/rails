@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+# NOTE: 非推奨な警告を明示的に表示させる
+Warning[:deprecated] = true
+
 begin
   load File.expand_path('../spring', __FILE__)
 rescue LoadError => e
