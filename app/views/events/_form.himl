@@ -13,9 +13,6 @@
     <%= form.label :name %>
     <%= form.text_field :name, class: "form-control" %>
   <div class="field form-group">
-    <%= form.label :organizer_id %>
-    <%= form.text_field :organizer_id, class: "form-control" %>
-  <div class="field form-group">
     <%= form.label :max_size %>
     <%= form.number_field :max_size, class: "form-control" %>
   <div class="field form-group">
