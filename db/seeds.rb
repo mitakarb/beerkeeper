@@ -7,7 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.create(
-  name: "sakurai"
+  name: "sakurai",
+  email: "email@example.com",
+  password: "password",
+  password_confirmation: "password",
 )
 
 Event.create(
