@@ -1,5 +1,7 @@
 <%= form_with url: sessions_path do |form| %>
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  <%= form.submit %>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  <%= form.submit 'Login' %>
