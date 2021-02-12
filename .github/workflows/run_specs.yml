@@ -36,8 +36,10 @@ jobs:
       uses: ruby/setup-ruby@v1.62.0
       with:
         ruby-version: 3.0.0
-    - name: Install dependencies
+    - name: Install Bundler dependencies
       run: bundle install
+    - name: Install yarn dependencies
+      run: yarn install
     - name: Setup database
       run: bundle exec rails db:setup
       env:
