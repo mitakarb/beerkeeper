@@ -14,6 +14,19 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      db:
+        image: postgres
+        ports:
+          - "5432:5432"
+        volumes:
+          - postgres:/var/lib/postgresql/data:cached
+        env:
+          PGDATA: /var/lib/postgresql/data/pgdata
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          TZ: Asia/Tokyo
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
@@ -25,7 +38,5 @@ jobs:
         ruby-version: 3.0.0
     - name: Install dependencies
       run: bundle install
-    - name: Run Docker
-      run: docker-compose up -d
     - name: Run tests
       run: bundle exec rspec
