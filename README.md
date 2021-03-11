@@ -21,7 +21,7 @@ $ docker-compose up
 ## local
 
 ```shell
-$ git clone git@github.com:mitakarb/beerkeeper.git
+$ git clone https://github.com/mitakarb/beerkeeper.git
 $ cd beerkeeper
 $ bin/setup
 $ bin/rails s
