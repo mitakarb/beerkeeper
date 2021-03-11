@@ -1,0 +1,50 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+
+name: RunSpecs
+
+on: push
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres
+        ports:
+          - 5432:5432
+        volumes:
+          - postgres:/var/lib/postgresql/data:cached
+        env:
+          PGDATA: /var/lib/postgresql/data/pgdata
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          TZ: Asia/Tokyo
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+    # change this to (see https://github.com/ruby/setup-ruby#versioning):
+    # uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@v1.62.0
+      with:
+        ruby-version: 3.0.0
+    - name: Install Bundler dependencies
+      run: bundle install
+    - name: Install yarn dependencies
+      run: yarn install
+    - name: Setup database
+      run: bundle exec rails db:setup
+      env:
+        BEERKEEPER_DATABASE_HOST: localhost
+    - name: Run tests
+      run: bundle exec rspec
+      env:
+        BEERKEEPER_DATABASE_HOST: localhost
