@@ -1,4 +1,5 @@
 FROM ruby:3.0.0-slim-buster
+
 RUN apt-get update -qq && apt-get install -y \
     curl \
     libpq-dev \
