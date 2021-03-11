@@ -13,7 +13,7 @@ mitaka.rb で作っているイベント管理アプリです :beers:
 ## Use Docker
 
 ```shell
-$ git clone git@github.com:mitakarb/beerkeeper.git
+$ git clone https://github.com/mitakarb/beerkeeper.git
 $ cd beerkeeper
 $ docker-compose up
 ```
