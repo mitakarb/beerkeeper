@@ -25,6 +25,12 @@
     <%= simple_format @event.description %>
   </li>
 
+  <% if current_user && current_user.participatable?(@event) %>
+    <li class="list-group-item">
+        <%= button_to '参加する', event_participations_path(@event) %>
+    </li>
+  <% end %>
+
 <div><%= link_to '編集', edit_event_path(@event) %>
 <div><%= link_to 'このイベントを削除', event_path(@event), method: :delete, data: {confirm: "削除しますか？"} %>
 <div><%= link_to 'トップへ戻る', root_path %>
