@@ -16,6 +16,7 @@ mitaka.rb で作っているイベント管理アプリです :beers:
 $ git clone https://github.com/mitakarb/beerkeeper.git
 $ cd beerkeeper
 $ docker-compose up
+$ docker-compose run web bin/rails db:setup
 ```
 
 ## local
