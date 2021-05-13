@@ -35,7 +35,7 @@ jobs:
     # uses: ruby/setup-ruby@v1
       uses: ruby/setup-ruby@v1.62.0
       with:
-        ruby-version: 3.0.0
+        ruby-version: 3.0.1
     - name: Install Bundler dependencies
       run: bundle install
     - name: Install yarn dependencies
