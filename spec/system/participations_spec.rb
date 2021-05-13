@@ -13,7 +13,7 @@ RSpec.describe 'Participations', type: :system do
       end
 
       it 'lets the user participate the event' do
-        click_on 'このイベントに参加する'
+        click_on '参加する'
       end
     end
 
@@ -23,7 +23,7 @@ RSpec.describe 'Participations', type: :system do
       end
 
       it 'does not show participating button' do
-        expect(page).not_to have_content('このイベントに参加する')
+        expect(page).not_to have_content('参加する')
       end
     end
   end
