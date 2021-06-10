@@ -17,7 +17,7 @@ WORKDIR /myapp
 
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
-RUN gem install bundler
+RUN gem install bundler -v '2.2.5'
 RUN bundle install
 
 COPY . /myapp
