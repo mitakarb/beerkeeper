@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Participations', type: :system do
-  let(:user) { FactoryBot.create(:user) }
-  let(:organizer) { FactoryBot.create(:user) }
-  let(:event) { FactoryBot.create(:event, organizer: organizer) }
+  let(:user) { create(:user) }
+  let(:organizer) { create(:user) }
+  let(:event) { create(:event, organizer: organizer) }
 
   describe 'participating from event page' do
     context 'when the user is logging in' do
