@@ -87,14 +87,14 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    ffi (1.15.3)
+    ffi (1.15.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     himl (0.1.2)
       nokogiri
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    listen (3.6.0)
+    listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.12.0)
@@ -235,7 +235,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   factory_bot_rails
   himl
-  listen (~> 3.6)
+  listen (~> 3.7)
   pg (>= 0.18, < 2.0)
   puma (~> 5.5)
   rack-mini-profiler (~> 2.0)
