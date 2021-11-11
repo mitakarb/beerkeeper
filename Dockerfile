@@ -1,34 +1,26 @@
-FROM ruby:3.0.1-slim-buster
+FROM ruby:3.0.1
 
-RUN apt-get update -qq && apt-get install -y \
-    curl \
-    libpq-dev \
-    build-essential \
-    postgresql-client
+WORKDIR /app
 
+# Using Node.js v14.x(LTS)
+RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && apt-get install -y nodejs yarn
+# Add packages
+RUN apt-get update && apt-get install -y \
+    git \
+    nodejs \
+    vim
 
-RUN mkdir /myapp
-WORKDIR /myapp
+# Add yarnpkg for assets:precompile
+RUN npm install -g yarn
 
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
-RUN gem install bundler -v '2.2.5'
-RUN bundle install
+# Add Chrome
+RUN curl -sO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && apt install -y ./google-chrome-stable_current_amd64.deb \
+    && rm google-chrome-stable_current_amd64.deb
 
-COPY . /myapp
-
-RUN yarn install
-
-# Add a script to be executed every time the container starts.
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
-EXPOSE 3000
-
-# Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# Add chromedriver
+RUN CHROME_DRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE` \
+    && curl -sO https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip \
+    && unzip chromedriver_linux64.zip \
+    && mv chromedriver /usr/bin/chromedriver
