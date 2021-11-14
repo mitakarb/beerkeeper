@@ -16,9 +16,32 @@
 
 require 'capybara/rspec'
 
+# thx: https://abicky.net/2019/09/17/062506/
+Capybara.register_driver :verbose_chrome_headless do |app|
+  Capybara::Selenium::Driver.new(app,
+    browser: :chrome,
+    options: Selenium::WebDriver::Chrome::Options.new(
+      args: ["--no-sandbox", "--headless"],
+    ),
+    desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
+      # console log にアクセスできるようにする
+      'goog:loggingPrefs': {
+        browser: "ALL",
+      },
+    ),
+    # chromedriver のログを有効にする
+    service: Selenium::WebDriver::Service.chrome(
+      args: {
+        log_path: '/tmp/chromedriver.log',
+        verbose: true,
+      },
+    ),
+  )
+end
+
 RSpec.configure do |config|
   config.before(:each, type: :system) do
-    driven_by :selenium_chrome_headless
+    driven_by :verbose_chrome_headless
   end
 
   # rspec-expectations config goes here. You can use an alternate
