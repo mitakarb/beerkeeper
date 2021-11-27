@@ -1,4 +1,4 @@
-FROM ruby:3.0.1
+FROM --platform=linux/x86_64 ruby:3.0.1
 
 WORKDIR /app
 
