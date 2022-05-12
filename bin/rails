@@ -1,8 +1,4 @@
 #!/usr/bin/env ruby
-# NOTE: 非推奨な警告を明示的に表示させる
-Warning[:deprecated] = true
-
-load File.expand_path("spring", __dir__)
-APP_PATH = File.expand_path('../config/application', __dir__)
+APP_PATH = File.expand_path("../config/application", __dir__)
 require_relative "../config/boot"
 require "rails/commands"
