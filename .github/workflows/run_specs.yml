@@ -42,6 +42,8 @@ jobs:
       run: bundle exec rails db:setup
       env:
         BEERKEEPER_DATABASE_HOST: localhost
+    - name: webpacker:compile
+      run: NODE_ENV=test bundle exec rails webpacker:compile
     - name: Run tests
       run: bundle exec rspec
       env:
