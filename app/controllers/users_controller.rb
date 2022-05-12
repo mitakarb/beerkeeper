@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'ユーザー登録しました'
       redirect_to root_path
     else
-      flash.now[:alert] = @user.errors.full_messages
+      flash.now[:alert] = @user.errors.full_messages.join(", ")
       render :new
     end
   end
