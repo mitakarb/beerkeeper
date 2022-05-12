@@ -24,15 +24,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-<<<<<<< HEAD
-      redirect_to @user, notice: 'User was successfully created.'
-    else
-=======
       flash[:notice] = 'ユーザー登録しました'
       redirect_to root_path
     else
       flash.now[:alert] = @user.errors.full_messages
->>>>>>> 1e18010 (Merge branch 'master' into add-registration)
       render :new
     end
   end
@@ -60,10 +55,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-<<<<<<< HEAD
-      params.require(:user).permit(:name)
-=======
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
->>>>>>> 1e18010 (Merge branch 'master' into add-registration)
     end
 end
