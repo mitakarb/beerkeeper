@@ -20,7 +20,11 @@
             <% if current_user %>
               <%= link_to 'ログアウト', session_path(current_user), method: :delete %>
             <% else %>
+<<<<<<< HEAD
               <%= link_to 'ログイン', login_path %>
+=======
+              <%= link_to 'ログイン', login_path %> | <%= link_to 'サインアップ', signup_path %>
+>>>>>>> 1e18010 (Merge branch 'master' into add-registration)
             <% end %>
           </li>
         </ul>

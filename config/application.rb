@@ -18,7 +18,11 @@ module Beerkeeper
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+<<<<<<< HEAD
 
+=======
+    config.i18n.default_locale = :ja
+>>>>>>> 1e18010 (Merge branch 'master' into add-registration)
     config.generators do |g|
       g.template_engine :himl
     end

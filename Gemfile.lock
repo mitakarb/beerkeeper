@@ -68,7 +68,11 @@ GEM
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
+<<<<<<< HEAD
     capybara (3.37.1)
+=======
+    capybara (3.36.0)
+>>>>>>> 1e18010 (Merge branch 'master' into add-registration)
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -110,11 +114,19 @@ GEM
     minitest (5.15.0)
     msgpack (1.4.5)
     nio4r (2.5.8)
+<<<<<<< HEAD
     nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     pg (1.3.5)
     public_suffix (4.0.7)
+=======
+    nokogiri (1.13.4)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
+    pg (1.3.5)
+    public_suffix (4.0.6)
+>>>>>>> 1e18010 (Merge branch 'master' into add-registration)
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -145,6 +157,12 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+<<<<<<< HEAD
+=======
+    rails-i18n (7.0.1)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
+>>>>>>> 1e18010 (Merge branch 'master' into add-registration)
     railties (6.1.4.1)
       actionpack (= 6.1.4.1)
       activesupport (= 6.1.4.1)
@@ -155,7 +173,11 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+<<<<<<< HEAD
     regexp_parser (2.4.0)
+=======
+    regexp_parser (2.1.1)
+>>>>>>> 1e18010 (Merge branch 'master' into add-registration)
     rexml (3.2.5)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
@@ -165,7 +187,11 @@ GEM
     rspec-mocks (3.11.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
+<<<<<<< HEAD
     rspec-rails (5.1.2)
+=======
+    rspec-rails (5.1.1)
+>>>>>>> 1e18010 (Merge branch 'master' into add-registration)
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       railties (>= 5.2)
@@ -241,6 +267,10 @@ DEPENDENCIES
   puma (~> 5.6)
   rack-mini-profiler (~> 3.0)
   rails (~> 6.1.4)
+<<<<<<< HEAD
+=======
+  rails-i18n
+>>>>>>> 1e18010 (Merge branch 'master' into add-registration)
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
