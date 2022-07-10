@@ -22,6 +22,7 @@ services:
       - bundle:/app/vendor/bundle
       - rails_cache:/app/tmp/cache
     tmpfs:
+      - /app/beerkeeper/tmp/pids
       - /tmp
     environment:
       BUNDLE_PATH: "/app/vendor/bundle"
@@ -40,8 +41,6 @@ services:
     ports: ["3000:3000"]
     user: root
     working_dir: /app
-    tmpfs:
-      - /app/beerkeeper/tmp/pids
 
 volumes:
   postgres:
