@@ -15,33 +15,28 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'capybara/rspec'
+require 'selenium-webdriver' # 今までなくても動いていたが、 Selenium がないと言われるので追記
 
-# thx: https://abicky.net/2019/09/17/062506/
-Capybara.register_driver :verbose_chrome_headless do |app|
-  Capybara::Selenium::Driver.new(app,
+capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+  'goog:chromeOptions' => {
+    args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage]
+  }
+)
+client = Selenium::WebDriver::Remote::Http::Default.new
+client.read_timeout = 120 # instead of the default 60
+
+Capybara.register_driver :headless_chrome do |app|
+  Capybara::Selenium::Driver.new(
+    app,
     browser: :chrome,
-    options: Selenium::WebDriver::Chrome::Options.new(
-      args: ["--no-sandbox", "--headless"],
-    ),
-    desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-      # console log にアクセスできるようにする
-      'goog:loggingPrefs': {
-        browser: "ALL",
-      },
-    ),
-    # chromedriver のログを有効にする
-    service: Selenium::WebDriver::Service.chrome(
-      args: {
-        log_path: '/tmp/chromedriver.log',
-        verbose: true,
-      },
-    ),
+    capabilities: capabilities,
+    http_client: client
   )
 end
 
 RSpec.configure do |config|
   config.before(:each, type: :system) do
-    driven_by :verbose_chrome_headless
+    driven_by :headless_chrome
   end
 
   # rspec-expectations config goes here. You can use an alternate
