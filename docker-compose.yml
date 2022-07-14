@@ -36,7 +36,7 @@ services:
     depends_on:
       - db
       - redis
-    command: ["bin/rails", "server", "-b", "0.0.0.0"]
+    command: ["bin/dev"]
     expose: ["3000"]
     ports: ["3000:3000"]
     user: root
