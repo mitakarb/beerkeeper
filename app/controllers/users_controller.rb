@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash.now[:alert] = @user.errors.full_messages.join(", ")
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
