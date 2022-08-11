@@ -30,9 +30,9 @@ RSpec.describe "registrations", type: :system do
 
       it "fails to signup with alert message" do
         within "div.alert-danger" do
-          expect(page).to have_content("Passwordを入力してください")
-          expect(page).to have_content("Emailを入力してください")
-          expect(page).to have_content("Emailは不正な値です")
+          expect(page).to have_content("Password を入力してください")
+          expect(page).to have_content("Email を入力してください")
+          expect(page).to have_content("Email の形式が不正です")
         end
       end
     end
