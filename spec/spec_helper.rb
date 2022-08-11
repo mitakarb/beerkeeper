@@ -35,8 +35,14 @@ Capybara.register_driver :headless_chrome do |app|
 end
 
 RSpec.configure do |config|
+  config.before(:suite) do
+    system("bin/rails dartsass:build")
+  end
   config.before(:each, type: :system) do
     driven_by :headless_chrome
+  end
+  config.after(:suite) do
+    system("bin/rails assets:clobber")
   end
 
   # rspec-expectations config goes here. You can use an alternate

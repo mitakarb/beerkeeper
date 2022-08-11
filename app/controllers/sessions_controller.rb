@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to events_path
     else
       flash.now[:alert] = 'ログインに失敗しました'
-      render :new
+      render :new, status: :unauthorized
     end
   end
 

@@ -17,7 +17,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= ENV.fetch('BEERKEEPER_DATABASE_HOST') { 'db' } %>
+  # host: <%= ENV.fetch('BEERKEEPER_DATABASE_HOST') { 'db' } %>
+  host: localhost
   pool: 5
 
 development:
