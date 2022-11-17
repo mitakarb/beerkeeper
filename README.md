@@ -6,7 +6,7 @@ mitaka.rb で作っているイベント管理アプリです :beers:
 
 # 環境構築
 
-- Ruby: 3.0.1
+- Ruby: 3.1.2
 - Rails: 6.1.4
 - DB: postgresql
 
