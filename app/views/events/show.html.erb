@@ -1,5 +1,4 @@
-<h1>
-  <%= @event.name %>
+<h1><%= @event.name %></h1>
 
 <ul class="list-group">
   <li class="list-group-item">
@@ -31,6 +30,6 @@
     </li>
   <% end %>
 
-<div><%= link_to '編集', edit_event_path(@event) %>
-<div><%= link_to "このイベントを削除", event_path(@event), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %>
-<div><%= link_to 'トップへ戻る', root_path %>
+<div><%= link_to '編集', edit_event_path(@event) %></div>
+<div><%= link_to "このイベントを削除", event_path(@event), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %></div>
+<div><%= link_to 'トップへ戻る', root_path %></div>

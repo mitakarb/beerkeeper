@@ -1,5 +1,4 @@
-<h1>
-    イベント一覧
+<h1>イベント一覧</h1>
 
 <table class="table">
   <thead>
@@ -17,6 +16,8 @@
         <td><%= event.description %></td>
       </tr>
     <% end %>
+  </tbody>
+</table>
 
 <% if current_user %>
   <%= link_to '新規作成', new_event_path, class: "btn btn-primary" %>

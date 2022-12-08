@@ -129,8 +129,6 @@ GEM
       railties (>= 5.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    himl (0.1.2)
-      nokogiri
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -258,7 +256,6 @@ DEPENDENCIES
   dartsass-rails (~> 0.4.0)
   debug
   factory_bot_rails
-  himl
   importmap-rails
   jbuilder
   pg (~> 1.4)
