@@ -19,7 +19,7 @@
         <ul class="navbar-nav mr-auto d-flex flex-row-reverse w-100">
           <li class="nav-item active">
             <% if current_user %>
-              <%= link_to 'ログアウト', session_path(current_user), method: :delete %>
+              <%= link_to 'ログアウト', session_path(current_user), data: { turbo_method: :delete } %>
             <% else %>
               <%= link_to 'ログイン', login_path %> | <%= link_to 'サインアップ', signup_path %>
             <% end %>
