@@ -24,9 +24,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+      flash[:notice] = 'ユーザー登録しました'
+      redirect_to root_path
     else
-      render :new
+      flash.now[:alert] = @user.errors.full_messages.join(", ")
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -35,7 +37,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -53,6 +55,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end
