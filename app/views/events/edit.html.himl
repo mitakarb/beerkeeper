@@ -1,5 +1,0 @@
-<h1>編集
-
-<%= render 'form' %>
-
-<div><%= link_to 'トップへ戻る', root_path %>
