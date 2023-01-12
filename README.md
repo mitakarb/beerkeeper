@@ -37,7 +37,7 @@ $ docker-compose run --rm -e RAILS_ENV=test web bundle exec rspec
 $ git clone https://github.com/mitakarb/beerkeeper.git
 $ cd beerkeeper
 $ bin/setup
-$ bin/rails s
+$ bin/dev
 # http://localhost:3000/ を確認
 ```
 
