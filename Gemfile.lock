@@ -173,7 +173,7 @@ GEM
       rack
       railties (>= 7.0.0)
     public_suffix (5.0.0)
-    puma (5.6.5)
+    puma (6.0.2)
       nio4r (~> 2.0)
     racc (1.6.1)
     rack (2.2.4)
@@ -260,7 +260,7 @@ DEPENDENCIES
   jbuilder
   pg (~> 1.4)
   propshaft
-  puma (~> 5.6)
+  puma (~> 6.0)
   rails!
   rails-i18n
   redis (~> 5.0)
