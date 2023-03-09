@@ -15,31 +15,16 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'capybara/rspec'
-require 'selenium-webdriver' # 今までなくても動いていたが、 Selenium がないと言われるので追記
-
-capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-  'goog:chromeOptions' => {
-    args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage]
-  }
-)
-client = Selenium::WebDriver::Remote::Http::Default.new
-client.read_timeout = 120 # instead of the default 60
-
-Capybara.register_driver :headless_chrome do |app|
-  Capybara::Selenium::Driver.new(
-    app,
-    browser: :chrome,
-    capabilities: capabilities,
-    http_client: client
-  )
-end
 
 RSpec.configure do |config|
   config.before(:suite) do
     system("bin/rails dartsass:build")
   end
   config.before(:each, type: :system) do
-    driven_by :headless_chrome
+    driven_by :rack_test
+  end
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium, using: :headless_chrome
   end
   config.after(:suite) do
     system("bin/rails assets:clobber")
