@@ -2,8 +2,8 @@ FROM ruby:3.2.0
 
 WORKDIR /app
 
-# Using Node.js v14.x(LTS)
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+# Using Node.js v18.x(LTS)
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 
 # Add packages
 RUN apt-get update && apt-get install -y \
@@ -11,12 +11,9 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     vim
 
-# Add yarnpkg for assets:precompile
-RUN npm install -g yarn
-
 # Add Chrome
 RUN curl -sO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
-    && apt install -y ./google-chrome-stable_current_amd64.deb \
+    && apt-get install -y ./google-chrome-stable_current_amd64.deb \
     && rm google-chrome-stable_current_amd64.deb
 
 # Add chromedriver
