@@ -15,7 +15,6 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'capybara/rspec'
-require 'selenium-webdriver' # 今までなくても動いていたが、 Selenium がないと言われるので追記
 
 RSpec.configure do |config|
   config.before(:suite) do
