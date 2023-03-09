@@ -174,7 +174,7 @@ GEM
     nokogiri (1.14.2)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    pg (1.4.5)
+    pg (1.4.6)
     popper_js (2.11.6)
     propshaft (0.7.0)
       actionpack (>= 7.0.0)
