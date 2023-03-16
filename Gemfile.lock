@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: db8f664b509b362400200d4ea5da261ccd74f7b3
+  revision: f91bd408f3edeb997812c20ab4443358f4bbdf7f
   branch: main
   specs:
     actioncable (7.1.0.alpha)
@@ -146,7 +146,7 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.6.2)
+    irb (1.6.3)
       reline (>= 0.3.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -189,10 +189,10 @@ GEM
     puma (6.1.1)
       nio4r (~> 2.0)
     racc (1.6.2)
-    rack (3.0.4.2)
+    rack (3.0.7)
     rack-session (2.0.0)
       rack (>= 3.0.0)
-    rack-test (2.0.2)
+    rack-test (2.1.0)
       rack (>= 1.3)
     rackup (2.1.0)
       rack (>= 3)
