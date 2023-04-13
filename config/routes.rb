@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :events do
     resources :participations, only: %i[create destroy]
   end
-  resources :users
+  resource :users
 end

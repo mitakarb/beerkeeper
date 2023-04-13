@@ -2,37 +2,14 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
-  def index
-    @users = User.all
-  end
-
-  # GET /users/1
   def show
   end
 
-  # GET /users/new
-  def new
-    @user = User.new
-  end
-
-  # GET /users/1/edit
+  # GET /users/edit
   def edit
   end
 
-  # POST /users
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      flash[:notice] = 'ユーザー登録しました'
-      redirect_to root_path
-    else
-      flash.now[:alert] = @user.errors.full_messages.join(", ")
-      render :new, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /users/1
+  # PATCH/PUT /users
   def update
     if @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
@@ -50,7 +27,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
 
     # Only allow a trusted parameter "white list" through.
