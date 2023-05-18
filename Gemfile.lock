@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: b20defada34699077a348a9cb274015878c7bbdc
+  revision: 552c0d99c3e548de6693ea85a4e6cf6f40f8b520
   branch: main
   specs:
     actioncable (7.1.0.alpha)
@@ -91,7 +91,7 @@ GIT
       irb
       rackup (>= 1.0.0)
       rake (>= 12.2)
-      thor (~> 1.0)
+      thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
 
 GEM
