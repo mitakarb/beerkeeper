@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i(show edit update destroy)
+  before_action :authorize_organizer, only: %i(edit update destroy)
 
   # GET /events
   def index
@@ -50,6 +51,10 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
+    end
+
+    def authorize_organizer
+      return redirect_to root_url unless @event.organizer?(current_user)
     end
 
     # Only allow a trusted parameter "white list" through.
