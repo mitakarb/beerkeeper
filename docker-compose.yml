@@ -22,7 +22,7 @@ services:
       - bundle:/app/vendor/bundle
       - rails_cache:/app/tmp/cache
     tmpfs:
-      - /app/beerkeeper/tmp/pids
+      - /app/tmp/pids
       - /tmp
     environment:
       BUNDLE_PATH: "/app/vendor/bundle"
