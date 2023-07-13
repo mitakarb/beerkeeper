@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users
   def update
     if @user.update(user_params)
-      redirect_to users_path, notice: 'User was successfully updated.'
+      redirect_to user_path, notice: 'User was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy
-    redirect_to users_url, notice: 'User was successfully destroyed.'
+    redirect_to user_url, notice: 'User was successfully destroyed.'
   end
 
   private
