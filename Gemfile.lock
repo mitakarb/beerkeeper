@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: f043f74cdb6e3fdb5b914e8eddbca07544cd7aac
+  revision: 5f3eb2195ba503919665028c01e4c76125e59fac
   branch: main
   specs:
     actioncable (7.1.0.alpha)
@@ -148,7 +148,7 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.7.3)
+    irb (1.7.4)
       reline (>= 0.3.6)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -164,7 +164,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.2)
+    mini_portile2 (2.8.4)
     minitest (5.18.1)
     msgpack (1.6.0)
     net-imap (0.3.6)
