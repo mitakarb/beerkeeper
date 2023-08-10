@@ -210,9 +210,9 @@ GEM
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
     rake (13.0.6)
-    redis (5.0.6)
+    redis (5.0.7)
       redis-client (>= 0.9.0)
-    redis-client (0.12.1)
+    redis-client (0.15.0)
       connection_pool
     regexp_parser (2.8.1)
     reline (0.3.6)
