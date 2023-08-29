@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 6dd4579bcbcad26657c8a3c77aecfcb165bb71f9
+  revision: 4a9974acfa420174f51c7fdac454eaa4609588ed
   branch: main
   specs:
     actioncable (7.1.0.alpha)
@@ -68,6 +68,7 @@ GIT
       marcel (~> 1.0)
     activesupport (7.1.0.alpha)
       base64
+      bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
       connection_pool (>= 2.2.5)
       drb
@@ -107,6 +108,7 @@ GEM
       execjs (~> 2)
     base64 (0.1.1)
     bcrypt (3.1.19)
+    bigdecimal (3.1.4)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -184,7 +186,7 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.15.3)
+    nokogiri (1.15.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     pg (1.5.3)
@@ -222,7 +224,7 @@ GEM
     redis-client (0.15.0)
       connection_pool
     regexp_parser (2.8.1)
-    reline (0.3.7)
+    reline (0.3.8)
       io-console (~> 0.5)
     rexml (3.2.6)
     rspec-core (3.12.2)
@@ -255,7 +257,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.11.0)
+    selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
