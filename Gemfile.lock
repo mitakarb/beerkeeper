@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 6dd4579bcbcad26657c8a3c77aecfcb165bb71f9
+  revision: ed873f13895e1e9cd24d350a35fc3fb26100f1aa
   branch: main
   specs:
     actioncable (7.1.0.alpha)
@@ -68,6 +68,7 @@ GIT
       marcel (~> 1.0)
     activesupport (7.1.0.alpha)
       base64
+      bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
       connection_pool (>= 2.2.5)
       drb
@@ -107,6 +108,7 @@ GEM
       execjs (~> 2)
     base64 (0.1.1)
     bcrypt (3.1.19)
+    bigdecimal (3.1.4)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -154,7 +156,8 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.7.4)
+    irb (1.8.0)
+      rdoc (~> 6.5)
       reline (>= 0.3.6)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -184,7 +187,7 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.15.3)
+    nokogiri (1.15.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     pg (1.5.3)
@@ -194,6 +197,8 @@ GEM
       activesupport (>= 7.0.0)
       rack
       railties (>= 7.0.0)
+    psych (5.1.0)
+      stringio
     public_suffix (5.0.1)
     puma (6.3.0)
       nio4r (~> 2.0)
@@ -217,12 +222,14 @@ GEM
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
     rake (13.0.6)
+    rdoc (6.5.0)
+      psych (>= 4.0.0)
     redis (5.0.7)
       redis-client (>= 0.9.0)
     redis-client (0.15.0)
       connection_pool
     regexp_parser (2.8.1)
-    reline (0.3.7)
+    reline (0.3.8)
       io-console (~> 0.5)
     rexml (3.2.6)
     rspec-core (3.12.2)
@@ -255,7 +262,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.11.0)
+    selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -268,6 +275,7 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
+    stringio (3.0.8)
     thor (1.2.2)
     tilt (2.1.0)
     timeout (0.4.0)
