@@ -13,7 +13,7 @@ RSpec.describe AlertComponent, type: :component do
 
   it 'render danger alert' do
     render_inline(
-      described_class.new(message_type: "danger", message: "danger message")
+      described_class.new(message_type: "alert", message: "danger message")
     )
     expect(page).to have_selector ".alert-danger", text: "danger message"
     expect(page).not_to have_selector ".alert-success"
