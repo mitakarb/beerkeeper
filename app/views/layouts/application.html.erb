@@ -30,10 +30,7 @@
 
     <div class="container">
       <% flash.each do |message_type, message| %>
-        <% alert_name = message_type.to_sym == :alert ? 'danger' : 'success' %>
-        <div class="alert alert-<%= alert_name %>">
-          <%= message %>
-        </div>
+        <%= render(AlertComponent.new(message_type: message_type, message: message) ) %>
       <% end %>
       <%= yield %>
     </div>
