@@ -172,6 +172,7 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    method_source (1.0.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.4)
     minitest (5.20.0)
@@ -285,6 +286,10 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    view_component (3.6.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -327,6 +332,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  view_component (~> 3.6)
   web-console
   webdrivers
 
