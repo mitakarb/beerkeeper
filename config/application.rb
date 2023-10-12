@@ -10,6 +10,7 @@ module Beerkeeper
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.generators.test_framework = :rspec
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -19,5 +20,6 @@ module Beerkeeper
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :ja
+    config.view_component.preview_paths << "#{Rails.root}/spec/components/previews"
   end
 end
