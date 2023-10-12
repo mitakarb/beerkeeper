@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
 
     if @user.save
       flash[:notice] = 'ユーザー登録しました'
-      redirect_to root_path
+      redirect_to login_path
     else
       flash.now[:alert] = @user.errors.full_messages.join(", ")
       render :new, status: :unprocessable_entity
