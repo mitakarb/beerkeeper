@@ -10,4 +10,5 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     git \
     nodejs \
     vim \
-    chromium
+    chromium \
+    chromium-driver

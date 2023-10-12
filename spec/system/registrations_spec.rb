@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "registrations", type: :system do
+RSpec.describe "registrations", type: :system, js: true do
   describe "Signup" do
     before do
       visit signup_path
