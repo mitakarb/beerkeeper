@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    command: sleep infinity
+    volumes:
+      - vscode_server:/root/.vscode-server
+
+volumes:
+  vscode_server:
+

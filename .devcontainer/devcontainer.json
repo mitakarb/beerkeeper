@@ -1,0 +1,25 @@
+{
+  "name": "Dev Container",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "docker-compose.yml"
+  ],
+  "service": "web",
+  "runServices": [
+    "web",
+    "db",
+    "redis"
+  ],
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rebornix.ruby",
+        "KoichiSasada.vscode-rdbg"
+      ],
+      "settings": {
+        "ruby.useLanguageServer": true
+      }
+    }
+  }
+}
