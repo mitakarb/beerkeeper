@@ -32,7 +32,8 @@
 
     <div class="container">
       <% flash.each do |message_type, message| %>
-        <%= render(AlertComponent.new(message_type: message_type, message: message) ) %>
+        <%= message_type %>
+        <%= render(Primer::Beta::Flash.new(scheme: message_type.to_sym, dismissible: true)) { message } %>
       <% end %>
       <%= yield %>
     </div>
