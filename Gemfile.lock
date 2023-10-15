@@ -191,8 +191,14 @@ GEM
     nokogiri (1.15.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
+    octicons (19.8.0)
     pg (1.5.4)
     popper_js (2.11.8)
+    primer_view_components (0.11.0)
+      actionview (>= 5.0.0)
+      activesupport (>= 5.0.0)
+      octicons (>= 18.0.0)
+      view_component (>= 3.1, < 4.0)
     propshaft (0.8.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -318,6 +324,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   pg (~> 1.5)
+  primer_view_components (~> 0.11.0)
   propshaft
   puma (~> 6.4)
   rails!
