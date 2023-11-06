@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 68b119a361724cd89135209f685cdebd3b76a331
+  revision: 488a7ce188803828c3e7111e23e70108d761c283
   branch: main
   specs:
     actioncable (7.2.0.alpha)
@@ -33,6 +33,7 @@ GIT
       actionview (= 7.2.0.alpha)
       activesupport (= 7.2.0.alpha)
       nokogiri (>= 1.8.5)
+      racc
       rack (>= 2.2.4)
       rack-session (>= 1.0.1)
       rack-test (>= 0.6.3)
@@ -74,7 +75,6 @@ GIT
       drb
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
-      mutex_m
       tzinfo (~> 2.0)
     rails (7.2.0.alpha)
       actioncable (= 7.2.0.alpha)
@@ -156,7 +156,7 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.8.1)
+    irb (1.8.3)
       rdoc
       reline (>= 0.3.8)
     jbuilder (2.11.5)
@@ -174,11 +174,10 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.4)
+    mini_portile2 (2.8.5)
     minitest (5.20.0)
     msgpack (1.6.0)
-    mutex_m (0.1.2)
-    net-imap (0.4.1)
+    net-imap (0.4.4)
       date
       net-protocol
     net-pop (0.1.2)
@@ -198,12 +197,12 @@ GEM
       activesupport (>= 7.0.0)
       rack
       railties (>= 7.0.0)
-    psych (5.1.1)
+    psych (5.1.1.1)
       stringio
     public_suffix (5.0.1)
     puma (6.4.0)
       nio4r (~> 2.0)
-    racc (1.7.1)
+    racc (1.7.3)
     rack (3.0.8)
     rack-session (2.0.0)
       rack (>= 3.0.0)
@@ -222,8 +221,8 @@ GEM
     rails-i18n (7.0.8)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
-    rake (13.0.6)
-    rdoc (6.5.0)
+    rake (13.1.0)
+    rdoc (6.6.0)
       psych (>= 4.0.0)
     redis (5.0.7)
       redis-client (>= 0.9.0)
@@ -277,7 +276,7 @@ GEM
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.0.8)
-    thor (1.2.2)
+    thor (1.3.0)
     tilt (2.2.0)
     timeout (0.4.0)
     turbo-rails (1.5.0)
