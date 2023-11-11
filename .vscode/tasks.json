@@ -4,14 +4,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Run rails server",
+            "label": "Run dev",
             "type": "shell",
-            "command": "bin/rails server",
+            "command": "bin/dev"
         },
         {
-            "label": "Run rails dartsass:watch",
+            "label": "Run dev without web",
             "type": "shell",
-            "command": "bin/rails dartsass:watch",
+            "command": "bin/dev -m all=1,web=0"
         },
         {
             "label": "Run rspec",
