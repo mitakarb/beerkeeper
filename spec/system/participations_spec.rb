@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Participations', type: :system do
+RSpec.describe 'Participations', type: :system, js: true do
   let(:user) { create(:user) }
   let(:organizer) { create(:user) }
   let(:event) { create(:event, organizer: organizer) }

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "sessions", type: :system do
+RSpec.describe "sessions", type: :system, js: true do
   describe "Login" do
     let(:user) { FactoryBot.create(:user) }
 
