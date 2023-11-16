@@ -14,8 +14,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "rebornix.ruby",
-        "KoichiSasada.vscode-rdbg"
+        "KoichiSasada.vscode-rdbg",
+        "Shopify.ruby-lsp"
       ],
       "settings": {
         "ruby.useLanguageServer": true

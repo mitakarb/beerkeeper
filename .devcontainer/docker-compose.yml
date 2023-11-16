@@ -5,6 +5,10 @@ services:
     command: sleep infinity
     volumes:
       - vscode_server:/root/.vscode-server
+      - bundle:/usr/local/bundle
+    environment:
+      BUNDLE_PATH: # ruby-lsp拡張が動作しないため、空で上書き
+      BOOTSNAP_CACHE_DIR: # ruby-lsp拡張が動作しないため、空で上書き
 
 volumes:
   vscode_server:
