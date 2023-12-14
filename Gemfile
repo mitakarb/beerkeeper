@@ -75,5 +75,5 @@ group :test do
   gem "factory_bot_rails"
 end
 
-gem "primer_view_components", "~> 0.11.0"
+gem "primer_view_components", "~> 0.15.1"
 gem "view_component", "~> 3.8"

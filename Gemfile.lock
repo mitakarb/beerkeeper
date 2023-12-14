@@ -194,7 +194,7 @@ GEM
     octicons (19.8.0)
     pg (1.5.4)
     popper_js (2.11.8)
-    primer_view_components (0.11.0)
+    primer_view_components (0.15.1)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
       octicons (>= 18.0.0)
@@ -324,7 +324,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   pg (~> 1.5)
-  primer_view_components (~> 0.11.0)
+  primer_view_components (~> 0.15.1)
   propshaft
   puma (~> 6.4)
   rails!
