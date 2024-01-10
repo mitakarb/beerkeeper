@@ -5,17 +5,23 @@ require "rails_helper"
 RSpec.describe AlertComponent, type: :component do
   it 'render success alert' do
     render_inline(
-      described_class.new(message_type: "notice", message: "success message")
+      described_class.new(message_type: "success", message: "success message")
     )
-    expect(page).to have_selector ".alert-success", text: "success message"
-    expect(page).not_to have_selector ".alert-danger"
+    expect(page).to have_selector ".flash-success", text: "success message"
+    expect(page).not_to have_selector ".flash-warn"
+  end
+
+  it 'render warn alert' do
+    render_inline(
+      described_class.new(message_type: "warn", message: "warn message")
+    )
+    expect(page).to have_selector ".flash-warn", text: "warn message"
   end
 
   it 'render danger alert' do
     render_inline(
-      described_class.new(message_type: "alert", message: "danger message")
+      described_class.new(message_type: "danger", message: "danger message")
     )
-    expect(page).to have_selector ".alert-danger", text: "danger message"
-    expect(page).not_to have_selector ".alert-success"
+    expect(page).to have_selector ".flash-danger", text: "danger message"
   end
 end
