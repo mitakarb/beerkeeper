@@ -1,3 +1,4 @@
 // Entry point for your Sass build
 
-@import "./application.bootstrap.scss"
+//= link primer_view_components.css
+@import url("https://unpkg.com/@primer/css@^21.1.1/dist/primer.css")
