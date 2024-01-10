@@ -1,5 +1,5 @@
 <%= primer_form_with local: true, url: sessions_path do |f| %>
-  <div class="field">
+  <%= render(Primer::Box.new(m: 3)) do %>
     <%= render(LoginForm.new(f)) %>
-  </div>
+  <% end %>
 <% end %>
