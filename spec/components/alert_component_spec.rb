@@ -8,20 +8,20 @@ RSpec.describe AlertComponent, type: :component do
       described_class.new(message_type: "success", message: "success message")
     )
     expect(page).to have_selector ".flash-success", text: "success message"
-    expect(page).not_to have_selector ".flash-warn"
+    expect(page).not_to have_selector ".flash-warning"
   end
 
-  it 'render warn alert' do
+  it 'render warning alert' do
     render_inline(
-      described_class.new(message_type: "warn", message: "warn message")
+      described_class.new(message_type: "warning", message: "warning message")
     )
-    expect(page).to have_selector ".flash-warn", text: "warn message"
+    expect(page).to have_selector ".flash-warn", text: "warning message"
   end
 
   it 'render danger alert' do
     render_inline(
       described_class.new(message_type: "danger", message: "danger message")
     )
-    expect(page).to have_selector ".flash-danger", text: "danger message"
+    expect(page).to have_selector ".flash-error", text: "danger message"
   end
 end
