@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: c6ef898246db2fbc62cfb32f18e313b3fa5438e2
+  revision: 8f386d73215867d5f55058a252f066b1040a7f2b
   branch: main
   specs:
     actioncable (7.2.0.alpha)
@@ -121,7 +121,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    concurrent-ruby (1.2.2)
+    concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
     dartsass-rails (0.5.0)
@@ -171,7 +171,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.5)
-    minitest (5.20.0)
+    minitest (5.21.1)
     msgpack (1.7.2)
     net-imap (0.4.9.1)
       date
