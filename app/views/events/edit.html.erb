@@ -1,6 +1,9 @@
 <h1>編集</h1>
 
-<%= render 'form' %>
+<%= primer_form_with local: true, model: @event, url: events_path do |f| %>
+  <%= render 'form', { f: f } %>
+<% end %>
+
 
 <div><%= link_to 'トップへ戻る', root_path %></div>
 
