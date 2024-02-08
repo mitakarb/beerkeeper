@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: c6ef898246db2fbc62cfb32f18e313b3fa5438e2
+  revision: bab4aa7cb25112846e04cea907361a1de0f126ef
   branch: main
   specs:
     actioncable (7.2.0.alpha)
@@ -69,7 +69,7 @@ GIT
       connection_pool (>= 2.2.5)
       drb
       i18n (>= 1.6, < 2)
-      minitest (>= 5.1)
+      minitest (>= 5.1, < 5.22.0)
       tzinfo (~> 2.0, >= 2.0.5)
     rails (7.2.0.alpha)
       actioncable (= 7.2.0.alpha)
@@ -97,31 +97,31 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.4)
+    addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     autoprefixer-rails (10.4.13.0)
       execjs (~> 2)
     base64 (0.2.0)
     bcrypt (3.1.20)
-    bigdecimal (3.1.5)
+    bigdecimal (3.1.6)
     bindex (0.8.1)
-    bootsnap (1.17.0)
+    bootsnap (1.18.3)
       msgpack (~> 1.2)
     bootstrap (5.3.1)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
-    capybara (3.39.2)
+    capybara (3.40.0)
       addressable
       matrix
       mini_mime (>= 0.1.3)
-      nokogiri (~> 1.8)
+      nokogiri (~> 1.11)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    concurrent-ruby (1.2.2)
+    concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
     dartsass-rails (0.5.0)
@@ -131,7 +131,7 @@ GEM
     debug (1.9.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
-    diff-lcs (1.5.0)
+    diff-lcs (1.5.1)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -151,8 +151,8 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
-    io-console (0.7.1)
-    irb (1.11.1)
+    io-console (0.7.2)
+    irb (1.11.2)
       rdoc
       reline (>= 0.4.2)
     jbuilder (2.11.5)
@@ -171,9 +171,9 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.5)
-    minitest (5.20.0)
+    minitest (5.21.2)
     msgpack (1.7.2)
-    net-imap (0.4.9.1)
+    net-imap (0.4.10)
       date
       net-protocol
     net-pop (0.1.2)
@@ -183,7 +183,7 @@ GEM
     net-smtp (0.4.0.1)
       net-protocol
     nio4r (2.7.0)
-    nokogiri (1.16.0)
+    nokogiri (1.16.2)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     octicons (19.8.0)
@@ -201,11 +201,11 @@ GEM
       railties (>= 7.0.0)
     psych (5.1.2)
       stringio
-    public_suffix (5.0.1)
+    public_suffix (5.0.4)
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.3)
-    rack (3.0.8)
+    rack (3.0.9)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -230,19 +230,19 @@ GEM
       redis-client (>= 0.17.0)
     redis-client (0.18.0)
       connection_pool
-    regexp_parser (2.8.1)
+    regexp_parser (2.9.0)
     reline (0.4.2)
       io-console (~> 0.5)
     rexml (3.2.6)
-    rspec-core (3.12.2)
-      rspec-support (~> 3.12.0)
-    rspec-expectations (3.12.3)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.12.0)
-    rspec-mocks (3.12.6)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.12.0)
-    rspec-rails (6.1.0)
+      rspec-support (~> 3.13.0)
+    rspec-rails (6.1.1)
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       railties (>= 6.1)
@@ -250,7 +250,7 @@ GEM
       rspec-expectations (~> 3.12)
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
-    rspec-support (3.12.1)
+    rspec-support (3.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-embedded (1.63.6)
@@ -264,7 +264,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.16.0)
+    selenium-webdriver (4.17.0)
+      base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -281,7 +282,7 @@ GEM
     thor (1.3.0)
     tilt (2.2.0)
     timeout (0.4.1)
-    turbo-rails (1.5.0)
+    turbo-rails (2.0.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -304,7 +305,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.12)
+    zeitwerk (2.6.13)
 
 PLATFORMS
   ruby
