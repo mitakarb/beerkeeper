@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   has_many :participations, dependent: :destroy
 
   before_destroy do
-    throw(:abort)
+    throw(:abort) if participations.exists?
   end
 
   validates :start_at, presence: true
