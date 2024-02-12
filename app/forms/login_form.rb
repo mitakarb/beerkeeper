@@ -21,8 +21,4 @@ class LoginForm < ApplicationForm
       mb: 3
     )
   end
-
-  def initialize()
-
-  end
 end
