@@ -75,4 +75,4 @@ group :test do
   gem "factory_bot_rails"
 end
 
-gem "view_component", "~> 3.10"
+gem "view_component", "~> 3.11"
