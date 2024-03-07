@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: bab4aa7cb25112846e04cea907361a1de0f126ef
+  revision: 033acf8bc3df8c45eab9cc59a42b3aa72617f00c
   branch: main
   specs:
     actioncable (7.2.0.alpha)
@@ -132,8 +132,7 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
-    drb (2.2.0)
-      ruby2_keywords
+    drb (2.2.1)
     erubi (1.12.0)
     execjs (2.8.1)
     factory_bot (6.4.5)
@@ -145,14 +144,14 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-protobuf (3.23.4)
-    i18n (1.14.1)
+    i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.7.2)
-    irb (1.11.2)
+    irb (1.12.0)
       rdoc
       reline (>= 0.4.2)
     jbuilder (2.11.5)
@@ -166,7 +165,7 @@ GEM
       net-imap
       net-pop
       net-smtp
-    marcel (1.0.2)
+    marcel (1.0.4)
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.5)
@@ -199,7 +198,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.3)
-    rack (3.0.9)
+    rack (3.0.9.1)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -225,7 +224,7 @@ GEM
     redis-client (0.18.0)
       connection_pool
     regexp_parser (2.9.0)
-    reline (0.4.2)
+    reline (0.4.3)
       io-console (~> 0.5)
     rexml (3.2.6)
     rspec-core (3.13.0)
@@ -245,7 +244,6 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.13.0)
-    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-embedded (1.63.6)
       google-protobuf (~> 3.23)
@@ -273,7 +271,7 @@ GEM
     stimulus-rails (1.3.3)
       railties (>= 6.0.0)
     stringio (3.1.0)
-    thor (1.3.0)
+    thor (1.3.1)
     tilt (2.2.0)
     timeout (0.4.1)
     turbo-rails (2.0.0)
