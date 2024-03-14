@@ -8,7 +8,7 @@ RSpec.describe "registrations", type: :system, js: true do
       fill_in :user_email, with: email
       fill_in :user_password, with: password
       fill_in :user_password_confirmation, with: password
-      click_on 'Signup'
+      click_on '登録'
     end
 
     context "when all in information" do
@@ -17,7 +17,7 @@ RSpec.describe "registrations", type: :system, js: true do
       let(:password) { "test1234" }
 
       it "succeed to signup with message" do
-        within "div.alert-success" do
+        within "div.flash-success" do
           expect(page).to have_content("ユーザー登録しました")
         end
       end
@@ -29,7 +29,7 @@ RSpec.describe "registrations", type: :system, js: true do
       let(:password) { "" }
 
       it "fails to signup with alert message" do
-        within "div.alert-danger" do
+        within "div.flash-warn" do
           expect(page).to have_content("Password を入力してください")
           expect(page).to have_content("Email を入力してください")
           expect(page).to have_content("Email の形式が不正です")
