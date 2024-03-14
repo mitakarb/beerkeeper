@@ -1,9 +1,5 @@
-<%= form_with local: true, url: sessions_path do |form| %>
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-  <%= form.submit 'Login' %>
+<%= primer_form_with local: true, url: sessions_path do |f| %>
+  <%= render(Primer::Box.new(m: 3)) do %>
+    <%= render(LoginForm.new(f)) %>
+  <% end %>
 <% end %>

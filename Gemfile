@@ -16,9 +16,6 @@ gem "puma", "~> 6.4"
 gem "importmap-rails"
 gem "propshaft"
 
-# Bootstrap
-gem "bootstrap"
-
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
@@ -75,4 +72,5 @@ group :test do
   gem "factory_bot_rails"
 end
 
+gem "primer_view_components", "~> 0.19"
 gem "view_component", "~> 3.11"
