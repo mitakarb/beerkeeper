@@ -54,7 +54,7 @@ class EventsController < ApplicationController
     end
 
     def authorize_organizer
-      return redirect_to root_url unless @event.organizer?(current_user)
+      return redirect_to root_url, notice: 'オーガナイザーではないため編集できません。' unless @event.organizer?(current_user)
     end
 
     # Only allow a trusted parameter "white list" through.
