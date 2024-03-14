@@ -29,7 +29,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-gem "redis", "~> 5.0"
+gem "redis", "~> 5.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -75,5 +75,5 @@ group :test do
   gem "factory_bot_rails"
 end
 
-gem "primer_view_components", "~> 0.18.1"
+gem "primer_view_components", "~> 0.19"
 gem "view_component", "~> 3.10"
