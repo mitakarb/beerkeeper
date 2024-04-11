@@ -4,6 +4,6 @@ class Event < ApplicationRecord
   validates :name, presence: true
 
   def organizer?(user)
-    organizer == user
+    organizer_id == user.id
   end
 end
