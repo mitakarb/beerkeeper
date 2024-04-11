@@ -3,3 +3,7 @@ ja:
     format: "%{attribute} %{message}"
     messages:
       invalid: の形式が不正です
+
+  time:
+    formats:
+      default: "%Y年%m月%d日(%a) %H時%M分"
