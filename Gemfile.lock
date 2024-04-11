@@ -312,9 +312,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.20)
   bootsnap
-  bootstrap
   capybara
-  dartsass-rails (~> 0.5.0)
   debug
   factory_bot_rails
   importmap-rails
@@ -327,7 +325,6 @@ DEPENDENCIES
   rails-i18n
   redis (~> 5.1)
   rspec-rails
-  sassc-rails
   selenium-webdriver
   stimulus-rails
   turbo-rails
