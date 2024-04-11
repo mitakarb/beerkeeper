@@ -5,7 +5,7 @@ ruby "3.2.2"
 
 gem "bcrypt", "~> 3.1.20"
 gem "bootsnap", require: false
-gem "bootstrap"
+gem "bootstrap", github: 'twbs/bootstrap-rubygem' # v 5.3.3 should fix the problem, but not released yet
 gem "dartsass-rails", "~> 0.5.0"
 gem "importmap-rails"
 gem "jbuilder"
