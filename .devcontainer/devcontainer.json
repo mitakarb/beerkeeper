@@ -1,0 +1,15 @@
+{
+  "name": "Rails Dev Container",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "service": "web",
+  "workspaceFolder": "/app",
+  "customizations": {
+  "vscode": {
+    "extensions": [
+        "Shopify.ruby-extensions-pack"
+      ]
+    }
+  }
+}
