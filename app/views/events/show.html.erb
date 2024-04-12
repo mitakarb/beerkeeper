@@ -82,14 +82,17 @@
   <% end %>
 
   <%= render(Primer::Box.new(m: 3)) do %>
-    <%= render(Primer::Beta::Button.new(scheme: :link, tag: :a, href: edit_event_path(@event))) do %>
-      編集
+    <% if @event.organizer?(current_user) %>
+      <%= render(Primer::Beta::Button.new(scheme: :link, tag: :a, href: edit_event_path(@event))) do %>
+        編集
+      <% end %>
+      <%= render(Primer::Beta::Button.new(scheme: :danger, tag: :a, href: event_path(@event), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" })) do %>
+        イベントを削除する
+      <% end %>
     <% end %>
+
     <%= render(Primer::Beta::Button.new(scheme: :link, tag: :a, href: root_path)) do %>
       トップへ戻る
-    <% end %>
-    <%= render(Primer::Beta::Button.new(scheme: :danger, tag: :a, href: event_path(@event), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" })) do %>
-      イベントを削除する
     <% end %>
   <% end %>
 <% end %>
