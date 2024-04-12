@@ -1,32 +1,3 @@
-<%= form_with model: @event do |form| %>
-  <div class="field form-inline">
-    <%= form.label :start_at %>
-    <%= form.datetime_select :start_at, {}, class: "form-control" %>
-  </div>
-
-  <div class="field form-inline">
-    <%= form.label :end_at %>
-    <%= form.datetime_select :end_at, {}, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :location %>
-    <%= form.text_field :location, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :max_size %>
-    <%= form.number_field :max_size, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :budget %>
-    <%= form.text_field :budget, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: "form-control" %>
-  </div>
-  <%= form.submit nil, class: "btn btn-primary" %>
+<%= render(Primer::Box.new(m: 3)) do %>
+  <%= render(EventForm.new(f)) %>
 <% end %>

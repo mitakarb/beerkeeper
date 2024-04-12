@@ -8,16 +8,17 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      flash[:notice] = 'ログインに成功しました'
+      flash[:success] = 'ログインに成功しました'
       redirect_to events_path
     else
-      flash.now[:alert] = 'ログインに失敗しました'
+      flash.now[:warning] = 'ログインに失敗しました'
       render :new, status: :unauthorized
     end
   end
 
   def destroy
     session[:user_id] = nil
+    flash[:success] = 'ログアウトしました'
     redirect_to login_path
   end
 end

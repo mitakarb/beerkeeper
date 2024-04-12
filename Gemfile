@@ -5,11 +5,10 @@ ruby "3.2.2"
 
 gem "bcrypt", "~> 3.1.20"
 gem "bootsnap", require: false
-gem "bootstrap", github: 'twbs/bootstrap-rubygem' # v 5.3.3 should fix the problem, but not released yet
-gem "dartsass-rails", "~> 0.5.0"
 gem "importmap-rails"
 gem "jbuilder"
 gem "pg", "~> 1.5"
+gem "primer_view_components", "~> 0.19"
 gem "propshaft"
 gem "puma", "~> 6.4"
 gem "rails-i18n"

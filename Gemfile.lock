@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 93df871020950b67256d0b4182bf8664c0187bcc
+  revision: 4bb73233413f30fd7217bd7f08af44963f5832b1
   branch: main
   specs:
     actioncable (7.2.0.alpha)
@@ -94,14 +94,6 @@ GIT
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
 
-GIT
-  remote: https://github.com/twbs/bootstrap-rubygem.git
-  revision: 90467dee09b0c6e52e7d58de867148fda0dd9f49
-  specs:
-    bootstrap (5.3.2)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 2.11.8, < 3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -115,6 +107,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
+    bootstrap (5.3.2)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.11.8, < 3)
     builder (3.2.4)
     capybara (3.40.0)
       addressable
@@ -132,11 +127,12 @@ GEM
       railties (>= 6.0.0)
       sass-embedded (~> 1.63)
     date (3.3.4)
-    debug (1.9.2)
+    debug (1.9.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
-    drb (2.2.1)
+    drb (2.2.0)
+      ruby2_keywords
     erubi (1.12.0)
     execjs (2.9.1)
     factory_bot (6.4.5)
@@ -144,17 +140,18 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
+    ffi (1.15.5)
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-protobuf (3.23.4)
-    i18n (1.14.4)
+    i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.7.2)
-    irb (1.12.0)
+    irb (1.11.2)
       rdoc
       reline (>= 0.4.2)
     jbuilder (2.11.5)
@@ -182,14 +179,20 @@ GEM
       net-protocol
     net-protocol (0.2.2)
       timeout
-    net-smtp (0.5.0)
+    net-smtp (0.4.0.1)
       net-protocol
-    nio4r (2.7.1)
-    nokogiri (1.16.4)
+    nio4r (2.7.0)
+    nokogiri (1.16.2)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    pg (1.5.6)
+    octicons (19.8.0)
+    pg (1.5.4)
     popper_js (2.11.8)
+    primer_view_components (0.19.0)
+      actionview (>= 5.0.0)
+      activesupport (>= 5.0.0)
+      octicons (>= 18.0.0)
+      view_component (>= 3.1, < 4.0)
     propshaft (0.8.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -201,7 +204,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.3)
-    rack (3.0.10)
+    rack (3.0.9)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -219,15 +222,15 @@ GEM
     rails-i18n (7.0.9)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
-    rake (13.2.1)
-    rdoc (6.6.3.1)
+    rake (13.1.0)
+    rdoc (6.6.2)
       psych (>= 4.0.0)
     redis (5.1.0)
       redis-client (>= 0.17.0)
-    redis-client (0.19.1)
+    redis-client (0.21.0)
       connection_pool
     regexp_parser (2.9.0)
-    reline (0.5.1)
+    reline (0.4.2)
       io-console (~> 0.5)
     rexml (3.2.6)
     rspec-core (3.13.0)
@@ -238,30 +241,47 @@ GEM
     rspec-mocks (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-rails (6.1.2)
+    rspec-rails (6.1.1)
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       railties (>= 6.1)
-      rspec-core (~> 3.13)
-      rspec-expectations (~> 3.13)
-      rspec-mocks (~> 3.13)
-      rspec-support (~> 3.13)
-    rspec-support (3.13.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.13.0)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-embedded (1.63.6)
       google-protobuf (~> 3.23)
       rake (>= 13.0.0)
-    selenium-webdriver (4.19.0)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
+    selenium-webdriver (4.17.0)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sprockets (4.2.0)
+      concurrent-ruby (~> 1.0)
+      rack (>= 2.2.4, < 4)
+    sprockets-rails (3.4.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      sprockets (>= 3.0.0)
     stimulus-rails (1.3.3)
       railties (>= 6.0.0)
     stringio (3.1.0)
-    thor (1.3.1)
+    thor (1.3.0)
+    tilt (2.2.0)
     timeout (0.4.1)
-    turbo-rails (2.0.5)
+    turbo-rails (2.0.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -292,14 +312,13 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.20)
   bootsnap
-  bootstrap!
   capybara
-  dartsass-rails (~> 0.5.0)
   debug
   factory_bot_rails
   importmap-rails
   jbuilder
   pg (~> 1.5)
+  primer_view_components (~> 0.19)
   propshaft
   puma (~> 6.4)
   rails!
