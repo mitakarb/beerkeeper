@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 93df871020950b67256d0b4182bf8664c0187bcc
+  revision: da21c2e9812e5eb0698fba4a9aa38632fc004432
   branch: main
   specs:
     actioncable (7.2.0.alpha)
@@ -172,7 +172,7 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.5)
+    mini_portile2 (2.8.6)
     minitest (5.21.2)
     msgpack (1.7.2)
     net-imap (0.4.10)
@@ -227,7 +227,7 @@ GEM
     redis-client (0.19.1)
       connection_pool
     regexp_parser (2.9.0)
-    reline (0.5.1)
+    reline (0.5.3)
       io-console (~> 0.5)
     rexml (3.2.6)
     rspec-core (3.13.0)
