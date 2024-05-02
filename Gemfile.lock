@@ -96,9 +96,9 @@ GIT
 
 GIT
   remote: https://github.com/twbs/bootstrap-rubygem.git
-  revision: 90467dee09b0c6e52e7d58de867148fda0dd9f49
+  revision: f240cae79fb1dcb55abcb4fc9710544134ef8ec2
   specs:
-    bootstrap (5.3.2)
+    bootstrap (5.3.3)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
 
