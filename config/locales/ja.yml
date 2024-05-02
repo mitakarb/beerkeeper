@@ -7,3 +7,16 @@ ja:
   time:
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分"
+
+  activerecord:
+    models:
+      event: イベント
+    attributes:
+      event:
+        start_at: 開始日時
+        end_at: 終了日時
+        location: 開催場所
+        name:	イベント名
+        max_size: 参加人数
+        budget: 参加費
+        description: 詳細
