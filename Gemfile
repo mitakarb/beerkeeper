@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
+gem "rails", github: "rails/rails", branch: "main"
+
 gem "bcrypt", "~> 3.1.20"
 gem "bootsnap", require: false
 gem "bootstrap", github: 'twbs/bootstrap-rubygem' # v 5.3.3 should fix the problem, but not released yet
@@ -13,7 +15,6 @@ gem "pg", "~> 1.5"
 gem "propshaft"
 gem "puma", "~> 6.4"
 gem "rails-i18n"
-gem "rails", github: "rails/rails", branch: "main"
 gem "redis", "~> 5.1"
 gem "stimulus-rails"
 gem "turbo-rails"
