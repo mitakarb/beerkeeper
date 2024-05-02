@@ -29,6 +29,7 @@
         <%= button_to '参加する', event_participations_path(@event) %>
     </li>
   <% end %>
+</ul>
   
   <% if @event.organizer?(current_user) %>
     <div><%= link_to '編集', edit_event_path(@event) %></div>
