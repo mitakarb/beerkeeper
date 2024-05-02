@@ -15,7 +15,7 @@ gem "pg", "~> 1.5"
 gem "propshaft"
 gem "puma", "~> 6.4"
 gem "rails-i18n"
-gem "redis", "~> 5.1"
+gem "redis", "~> 5.2"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
