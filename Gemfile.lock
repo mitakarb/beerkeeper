@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 445529cc3a4b024f4f3d0314c7305a3f6a5c2939
+  revision: f5355a21ae536a6638d503389a549e00c45cfa29
   branch: main
   specs:
     actioncable (8.0.0.alpha)
@@ -138,7 +138,7 @@ GEM
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
     drb (2.2.1)
-    erubi (1.12.0)
+    erubi (1.13.0)
     execjs (2.9.1)
     factory_bot (6.4.5)
       activesupport (>= 5.0.0)
@@ -187,7 +187,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
-    nokogiri (1.16.5)
+    nokogiri (1.16.6)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     pg (1.5.6)
