@@ -7,10 +7,11 @@ gem "rails", github: "rails/rails", branch: "main"
 
 gem "bcrypt", "~> 3.1.20"
 gem "bootsnap", require: false
+gem "dartsass-rails"
 gem "importmap-rails"
 gem "jbuilder"
 gem "pg", "~> 1.5"
-gem "primer_view_components", "~> 0.19"
+gem "primer_view_components", "~> 0.27"
 gem "propshaft"
 gem "puma", "~> 6.4"
 gem "rails-i18n"

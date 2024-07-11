@@ -118,6 +118,9 @@ GEM
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
+    dartsass-rails (0.5.0)
+      railties (>= 6.0.0)
+      sass-embedded (~> 1.63)
     date (3.3.4)
     debug (1.9.1)
       irb (~> 1.10)
@@ -133,6 +136,9 @@ GEM
       railties (>= 5.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    google-protobuf (4.27.2)
+      bigdecimal
+      rake (>= 13)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -174,9 +180,9 @@ GEM
     nokogiri (1.16.2)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    octicons (19.8.0)
+    octicons (19.10.0)
     pg (1.5.4)
-    primer_view_components (0.19.0)
+    primer_view_components (0.27.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
       octicons (>= 18.0.0)
@@ -240,6 +246,9 @@ GEM
     rspec-support (3.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sass-embedded (1.77.5)
+      google-protobuf (>= 3.25, < 5.0)
+      rake (>= 13)
     selenium-webdriver (4.17.0)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
@@ -282,12 +291,13 @@ DEPENDENCIES
   bcrypt (~> 3.1.20)
   bootsnap
   capybara
+  dartsass-rails
   debug
   factory_bot_rails
   importmap-rails
   jbuilder
   pg (~> 1.5)
-  primer_view_components (~> 0.19)
+  primer_view_components (~> 0.27)
   propshaft
   puma (~> 6.4)
   rails!
