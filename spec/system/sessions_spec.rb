@@ -8,7 +8,7 @@ RSpec.describe "sessions", type: :system, js: true do
       visit "/login"
       fill_in :email, with: email
       fill_in :password, with: password
-      click_on 'Login'
+      find(".Button", :text => "ログイン").click
     end
 
     context "when both email and password are correct" do
@@ -16,7 +16,7 @@ RSpec.describe "sessions", type: :system, js: true do
       let(:password) { user.password }
 
       it "enables us to login with email and password" do
-        within "div.alert-success" do
+        within "div.flash-success" do
           expect(page).to have_content("ログインに成功しました")
         end
       end
@@ -27,7 +27,7 @@ RSpec.describe "sessions", type: :system, js: true do
       let(:password) { user.password }
 
       it "fails to login with alert message" do
-        within "div.alert-danger" do
+        within "div.flash-warn" do
           expect(page).to have_content("ログインに失敗しました")
         end
       end
@@ -38,7 +38,7 @@ RSpec.describe "sessions", type: :system, js: true do
       let(:password) { 'wrong_password' }
 
       it "fails to login with alert message" do
-        within "div.alert-danger" do
+        within "div.flash-warn" do
           expect(page).to have_content("ログインに失敗しました")
         end
       end
