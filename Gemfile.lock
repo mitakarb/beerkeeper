@@ -97,10 +97,9 @@ GIT
 
 GIT
   remote: https://github.com/twbs/bootstrap-rubygem.git
-  revision: f240cae79fb1dcb55abcb4fc9710544134ef8ec2
+  revision: f1f92e0cb077d9bbfe0986fd1184a0560d022aa0
   specs:
     bootstrap (5.3.3)
-      autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
 
 GEM
@@ -108,8 +107,6 @@ GEM
   specs:
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
-    autoprefixer-rails (10.4.16.0)
-      execjs (~> 2)
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.1.8)
@@ -139,7 +136,6 @@ GEM
     diff-lcs (1.5.1)
     drb (2.2.1)
     erubi (1.13.0)
-    execjs (2.9.1)
     factory_bot (6.4.5)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.3)
