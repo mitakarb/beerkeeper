@@ -43,8 +43,11 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   def destroy
-    @event.destroy
-    redirect_to events_url, notice: 'Event was successfully destroyed.'
+    if @event.destroy
+      redirect_to events_url, notice: 'Event was successfully destroyed.'
+    else
+      redirect_to @event, alert: 'Event could not be destroyed.'
+    end
   end
 
   private
