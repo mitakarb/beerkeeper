@@ -18,4 +18,22 @@ RSpec.describe Event, type: :model do
       end
     end
   end
+
+  describe '#organizer?' do
+    let!(:event) { FactoryBot.create(:event) }
+
+    context '引数がnilの場合' do
+      it { expect(event.organizer?(nil)).to be_falsey }
+    end
+
+    context '引数がオーガナイザーの場合' do
+      it { expect(event.organizer?(event.organizer)).to be_truthy }
+    end
+
+    context '引数がオーガナイザーでない場合' do
+      let!(:user) { FactoryBot.create(:user) }
+
+      it { expect(event.organizer?(user)).to be_falsey }
+    end
+  end
 end
