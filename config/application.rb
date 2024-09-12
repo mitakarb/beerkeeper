@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module Beerkeeper
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.1
     config.generators.test_framework = :rspec
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
