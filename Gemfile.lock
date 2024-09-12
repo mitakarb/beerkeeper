@@ -299,7 +299,7 @@ DEPENDENCIES
   pg (~> 1.5)
   propshaft
   puma (~> 6.4)
-  rails (~> 7.1.0)
+  rails (~> 7.1.4)
   rails-i18n
   redis (~> 5.3)
   rspec-rails
