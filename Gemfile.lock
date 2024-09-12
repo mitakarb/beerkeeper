@@ -146,6 +146,9 @@ GEM
       railties (>= 5.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    google-protobuf (4.27.2-aarch64-linux)
+      bigdecimal
+      rake (>= 13)
     google-protobuf (4.27.2-x86_64-linux)
       bigdecimal
       rake (>= 13)
@@ -187,6 +190,8 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
+    nokogiri (1.16.7-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     pg (1.5.8)
@@ -249,6 +254,8 @@ GEM
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
     rubyzip (2.3.2)
+    sass-embedded (1.77.8-aarch64-linux-gnu)
+      google-protobuf (~> 4.26)
     sass-embedded (1.77.8-x86_64-linux-gnu)
       google-protobuf (~> 4.26)
     securerandom (0.3.1)
@@ -290,6 +297,7 @@ GEM
     zeitwerk (2.6.18)
 
 PLATFORMS
+  aarch64-linux
   x86_64-linux
 
 DEPENDENCIES
@@ -317,7 +325,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.3.4p94
+   ruby 3.3.5p100
 
 BUNDLED WITH
    2.5.6
