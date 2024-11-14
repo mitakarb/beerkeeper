@@ -6,7 +6,7 @@ mitaka.rb で作っているイベント管理アプリです :beers:
 
 # 環境構築
 
-- Ruby: 3.3.3
+- Ruby: 3.3.5
 - Rails: [`main`](https://github.com/rails/rails/tree/main)
 - DB: postgresql
 
@@ -17,7 +17,7 @@ mitaka.rb で作っているイベント管理アプリです :beers:
 $ docker compose down --volumes
 
 # まっさらな状態からやるとき
-$ git clone https://github.com/mitakarb/beerkeeper.git
+$ git clone git@github.com:mitakarb/beerkeeper.git
 $ cd beerkeeper
 $ docker compose build
 $ docker compose run --rm web bin/setup
@@ -34,7 +34,7 @@ $ docker compose run --rm -e RAILS_ENV=test web bundle exec rspec
 ## local
 
 ```shell
-$ git clone https://github.com/mitakarb/beerkeeper.git
+$ git clone git@github.com:mitakarb/beerkeeper.git
 $ cd beerkeeper
 $ bin/setup
 $ bin/dev
