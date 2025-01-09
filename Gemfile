@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.3.5"
 
-gem "rails", "~> 8.0.0"
+gem "rails", "~> 8.0.1"
 
 gem "bcrypt", "~> 3.1.20"
 gem "bootsnap", require: false
@@ -19,7 +19,7 @@ gem "redis", "~> 5.3"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem "view_component", "~> 3.20"
+gem "view_component", "~> 3.21"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
