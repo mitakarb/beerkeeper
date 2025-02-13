@@ -1,32 +1,83 @@
-<%= form_with model: @event do |form| %>
-  <div class="field form-inline">
-    <%= form.label :start_at %>
-    <%= form.datetime_select :start_at, {}, class: "form-control" %>
+<%= form_with model: @event, class: "needs-validation" do |form| %>
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">イベント日時</h5>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <%= form.label :start_at, class: "form-label" %>
+            <div class="d-flex align-items-center gap-2">
+              <%= form.datetime_select :start_at,
+                  { order: [:year, :month, :day, :hour, :minute],
+                    use_month_numbers: true,
+                    date_separator: '年 ',
+                    datetime_separator: '日 ',
+                    time_separator: '時 ' },
+                  { class: "form-select d-inline-block", style: "width: auto; min-width: 80px;" } %>
+              <span>分</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <%= form.label :end_at, class: "form-label" %>
+            <div class="d-flex align-items-center gap-2">
+              <%= form.datetime_select :end_at,
+                  { order: [:year, :month, :day, :hour, :minute],
+                    use_month_numbers: true,
+                    date_separator: '年 ',
+                    datetime_separator: '日 ',
+                    time_separator: '時 ' },
+                  { class: "form-select d-inline-block", style: "width: auto; min-width: 80px;" } %>
+              <span>分</span>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-12 mt-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">イベント詳細</h5>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <%= form.label :name, class: "form-label" %>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :location, class: "form-label" %>
+            <%= form.text_field :location, class: "form-control" %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :max_size, class: "form-label" %>
+            <%= form.number_field :max_size, class: "form-control" %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :budget, class: "form-label" %>
+            <%= form.text_field :budget, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field form-inline">
-    <%= form.label :end_at %>
-    <%= form.datetime_select :end_at, {}, class: "form-control" %>
+  <div class="card mb-4">
+    <div class="card-header">
+      <h5 class="mb-0">イベント説明</h5>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <%= form.label :description, class: "form-label" %>
+        <%= form.text_area :description, class: "form-control", rows: 5 %>
+      </div>
+    </div>
   </div>
-  <div class="field form-group">
-    <%= form.label :location %>
-    <%= form.text_field :location, class: "form-control" %>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <%= link_to 'キャンセル', root_path, class: "btn btn-secondary me-md-2" %>
+    <%= form.submit "保存", class: "btn btn-primary" %>
   </div>
-  <div class="field form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :max_size %>
-    <%= form.number_field :max_size, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :budget %>
-    <%= form.text_field :budget, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: "form-control" %>
-  </div>
-  <%= form.submit nil, class: "btn btn-primary" %>
 <% end %>
