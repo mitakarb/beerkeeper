@@ -8,14 +8,29 @@
         <div class="card-body">
           <div class="mb-3">
             <%= form.label :start_at, class: "form-label" %>
-            <div class="d-flex gap-2">
-              <%= form.datetime_select :start_at, {}, { class: "form-select flex-grow-0" } %>
+            <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center gap-1">
+                <%= form.datetime_select :start_at, {}, { class: "form-select", style: "width: auto" } %>
+                <span class="mx-1">年</span>
+                <span class="mx-1">月</span>
+                <span class="mx-1">日</span>
+                <span class="mx-2">-</span>
+                <span class="mx-1">:</span>
+              </div>
             </div>
           </div>
           <div class="mb-3">
             <%= form.label :end_at, class: "form-label" %>
-            <div class="d-flex gap-2">
-              <%= form.datetime_select :end_at, {}, { class: "form-select flex-grow-0" } %>
+            <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center gap-1">
+                <%= form.datetime_select :end_at, {}, { class: "form-select", style: "width: auto" } %>
+                <span class="mx-1">年</span>
+                <span class="mx-1">月</span>
+                <span class="mx-1">日</span>
+                <span class="mx-2">-</span>
+                <span class="mx-1">:</span>
+              </div>
+            </div>
             </div>
           </div>
         </div>
