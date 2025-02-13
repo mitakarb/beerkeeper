@@ -9,27 +9,25 @@
           <div class="mb-3">
             <%= form.label :start_at, class: "form-label" %>
             <div class="d-flex align-items-center">
-              <div class="d-flex align-items-center gap-1">
-                <%= form.datetime_select :start_at, {}, { class: "form-select", style: "width: auto" } %>
-                <span class="mx-1">年</span>
-                <span class="mx-1">月</span>
-                <span class="mx-1">日</span>
-                <span class="mx-2">-</span>
-                <span class="mx-1">:</span>
-              </div>
+              <%= form.datetime_select :start_at, {}, { class: "form-select me-1" } do |s| %>
+                <%= s.year_field %>年
+                <%= s.month_field %>月
+                <%= s.day_field %>日
+                <%= s.hour_field %>時
+                <%= s.minute_field %>分
+              <% end %>
             </div>
           </div>
           <div class="mb-3">
             <%= form.label :end_at, class: "form-label" %>
             <div class="d-flex align-items-center">
-              <div class="d-flex align-items-center gap-1">
-                <%= form.datetime_select :end_at, {}, { class: "form-select", style: "width: auto" } %>
-                <span class="mx-1">年</span>
-                <span class="mx-1">月</span>
-                <span class="mx-1">日</span>
-                <span class="mx-2">-</span>
-                <span class="mx-1">:</span>
-              </div>
+              <%= form.datetime_select :end_at, {}, { class: "form-select me-1" } do |s| %>
+                <%= s.year_field %>年
+                <%= s.month_field %>月
+                <%= s.day_field %>日
+                <%= s.hour_field %>時
+                <%= s.minute_field %>分
+              <% end %>
             </div>
             </div>
           </div>
