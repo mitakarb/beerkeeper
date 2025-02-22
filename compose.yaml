@@ -25,40 +25,24 @@ services:
     build: .
     volumes:
       - .:/app
-      - bundle:/usr/local/bundle:delegated
+      - bundle:/usr/local/bundle
       - node_modules:/app/node_modules
-      - log:/app/log
+      - tmp:/app/tmp
     tmpfs:
       - /tmp
-      - /app/tmp:uid=999,gid=995,mode=1777
     user: app
     environment:
       BUNDLE_PATH: "/usr/local/bundle"
-      BUNDLE_APP_CONFIG: "/usr/local/bundle"
-      BUNDLE_BIN: "/usr/local/bundle/bin"
-      PATH: "/usr/local/bundle/bin:$PATH"
-      BOOTSNAP_CACHE_DIR: "/app/vendor/bundle"
-      WD_INSTALL_DIR: "/usr/local/bin"
-      HISTFILE: "/app/log/.bash_history"
-      EDITOR: "vi"
-      DATABASE_URL: "postgres://postgres:postgres@db:5432"
-      REDIS_URL: "redis://redis:6379/"
-      BINDING: "0.0.0.0"
-      RAILS_MASTER_KEY:
+      RAILS_ENV: "development"
+      DATABASE_URL: "postgresql://postgres@db:5432/beerkeeper_development"
+      REDIS_URL: "redis://redis:6379/1"
     depends_on:
       db:
         condition: service_healthy
       redis:
         condition: service_healthy
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    command: ["bin/dev"]
-    expose: ["3000"]
     ports: ["3000:3000"]
-    working_dir: /app
+    command: ["bin/dev"]
 
 volumes:
   postgres:
@@ -66,4 +50,3 @@ volumes:
   bundle:
   node_modules:
   tmp:
-  log:

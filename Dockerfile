@@ -13,34 +13,29 @@ RUN apt-get update -qq && \
 
 # Set up environment
 ENV BUNDLE_PATH=/usr/local/bundle \
-    BUNDLE_BIN=/usr/local/bundle/bin \
-    PATH=/usr/local/bundle/bin:$PATH \
-    BUNDLE_APP_CONFIG=/usr/local/bundle
+    PATH=/usr/local/bundle/bin:$PATH
 
-# Install dependencies as root first
+# Install dependencies
 COPY Gemfile Gemfile.lock ./
 RUN bundle config set --local path '/usr/local/bundle' && \
     bundle install
 
-# Create app user and set up directories with proper permissions
-RUN groupadd -r app && useradd -r -g app -d /home/app -m app && \
-    mkdir -p /app/log /app/tmp/{pids,cache,sockets} /app/node_modules /app/public/assets /app/app/assets/builds && \
-    mkdir -p /usr/local/bundle/ruby/3.4.0/{cache,gems,specifications,extensions} && \
-    chown -R app:app /app /home/app /usr/local/bundle && \
-    chmod -R 2775 /usr/local/bundle && \
-    chmod -R g+s /usr/local/bundle && \
-    find /usr/local/bundle -type d -exec chmod 2775 {} \; && \
-    find /usr/local/bundle -type f -exec chmod 664 {} \; && \
-    chmod -R 777 /app/tmp
+# Create app user and set up directories
+RUN useradd -m -s /bin/bash app && \
+    mkdir -p /app/tmp /app/log /app/tmp/pids /app/tmp/cache /app/tmp/sockets && \
+    chown -R app:app /app /usr/local/bundle && \
+    chmod -R 777 /app/tmp && \
+    find /usr/local/bundle -type d -exec chmod 755 {} \; && \
+    find /usr/local/bundle -type f -exec chmod 644 {} \; && \
+    find /usr/local/bundle -type f -name "dart" -exec chmod 755 {} \; && \
+    find /usr/local/bundle -type f -name "sass" -exec chmod 755 {} \;
 
-# Switch to app user
 USER app
 ENV HOME=/home/app
 
-# Copy application files
 COPY --chown=app:app . .
 
-# Install Node.js dependencies if package.json exists
+# Install Node.js dependencies
 RUN if [ -f package.json ]; then yarn install; fi
 
 EXPOSE 3000
