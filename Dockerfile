@@ -1,123 +1,47 @@
 # syntax=docker/dockerfile:1.4
-FROM ruby:3.4.1-slim AS base
-
-# 共通の依存関係
-RUN --mount=type=cache,target=/var/cache/apt \
-    --mount=type=cache,target=/var/lib/apt \
-    apt-get update && apt-get install -y \
-    curl \
-    git \
-    && rm -rf /var/lib/apt/lists/*
-
-# Node.jsのセットアップ（共通）
-RUN --mount=type=cache,target=/var/cache/apt \
-    --mount=type=cache,target=/var/lib/apt \
-    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs
-
-# 開発環境用ビルドステージ
-FROM base AS builder
+FROM ruby:3.4.1
 
 WORKDIR /app
 
-# 非rootユーザーの作成（開発環境用）
-RUN groupadd -r rails && useradd -r -g rails rails && \
-    mkdir -p /app/log /app/tmp/cache /app/tmp/pids /app/tmp/capybara /app/public/assets && \
-    chown -R rails:rails /app && \
-    chmod -R 777 /app/log /app/tmp /app/public
+# Install system dependencies
+RUN apt-get update -qq && \
+    apt-get install -y curl git build-essential libpq-dev vim chromium chromium-driver && \
+    rm -rf /var/lib/apt/lists/* && \
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g yarn
 
-# 開発用パッケージのインストール
-RUN --mount=type=cache,target=/var/cache/apt \
-    --mount=type=cache,target=/var/lib/apt \
-    apt-get update && apt-get install -y \
-    build-essential \
-    libpq-dev \
-    vim \
-    chromium \
-    chromium-driver \
-    nodejs \
-    && rm -rf /var/lib/apt/lists/*
+# Set up environment
+ENV BUNDLE_PATH=/usr/local/bundle \
+    BUNDLE_BIN=/usr/local/bundle/bin \
+    PATH=/usr/local/bundle/bin:$PATH \
+    BUNDLE_APP_CONFIG=/usr/local/bundle
 
-# ディレクトリの作成と権限設定
-RUN mkdir -p /app/app/assets/builds /app/tmp/cache /app/log /app/tmp/pids /app/tmp/capybara /app/public/assets && \
-    mkdir -p /home/rails && \
-    mkdir -p /usr/local/bundle && \
-    chown -R rails:rails /app /home/rails /usr/local/bundle && \
-    chmod -R 777 /app /usr/local/bundle
-
-# Node.jsとyarnのセットアップ
-RUN npm install -g yarn && \
-    yarn config set cache-folder /usr/local/share/.cache/yarn
-
-# Gemfileのコピーと依存関係のインストール（rootとして実行）
+# Install dependencies as root first
 COPY Gemfile Gemfile.lock ./
 RUN bundle config set --local path '/usr/local/bundle' && \
-    bundle install --no-cache && \
-    bundle config set --local deployment 'true'
-
-# アプリケーションコードのコピー
-COPY . .
-
-# ディレクトリとパーミッションの設定
-RUN mkdir -p /app/tmp/capybara /app/app/assets/builds /app/public/assets && \
-    touch /app/app/assets/builds/application.css && \
-    chown -R rails:rails /app && \
-    chmod -R 777 /app/tmp /app/log /app/public /app/app/assets /app/public/assets
-
-# package.jsonの作成とnpm依存関係のインストール
-RUN echo '{"name":"beerkeeper","private":true,"scripts":{"build:css":"sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"},"dependencies":{"@popperjs/core":"^2.11.8","bootstrap":"^5.3.3","sass":"^1.71.1"}}' > package.json && \
-    chown -R rails:rails /app && \
-    chmod -R 777 /app && \
-    su -c "yarn install" rails
-
-USER rails
-WORKDIR /app
-
-# アセットのプリコンパイル
-ENV RAILS_ENV=test \
-    NODE_ENV=production
-RUN yarn build:css && \
-    bundle exec rake assets:precompile && \
-    bundle exec rake assets:precompile
-
-# アセットのプリコンパイル
-RUN bundle exec rake assets:precompile RAILS_ENV=test
-
-# Gemのインストール（キャッシュ利用）
-COPY Gemfile Gemfile.lock ./
-RUN --mount=type=cache,target=/usr/local/bundle/cache \
     bundle install
 
-# Node.jsの依存関係インストール（存在する場合）
-COPY package*.json ./
-RUN --mount=type=cache,target=/usr/local/share/.cache/yarn \
-    if [ -f package.json ]; then \
-    npm install; \
-    fi
+# Create app user and set up directories with proper permissions
+RUN groupadd -r app && useradd -r -g app -d /home/app -m app && \
+    mkdir -p /app/log /app/tmp/{pids,cache,sockets} /app/node_modules /app/public/assets /app/app/assets/builds && \
+    mkdir -p /usr/local/bundle/ruby/3.4.0/{cache,gems,specifications,extensions} && \
+    chown -R app:app /app /home/app /usr/local/bundle && \
+    chmod -R 2775 /usr/local/bundle && \
+    chmod -R g+s /usr/local/bundle && \
+    find /usr/local/bundle -type d -exec chmod 2775 {} \; && \
+    find /usr/local/bundle -type f -exec chmod 664 {} \; && \
+    chmod -R 777 /app/tmp
 
-USER rails
+# Switch to app user
+USER app
+ENV HOME=/home/app
 
-# 本番環境用ステージ
-FROM base AS production
+# Copy application files
+COPY --chown=app:app . .
 
-WORKDIR /app
+# Install Node.js dependencies if package.json exists
+RUN if [ -f package.json ]; then yarn install; fi
 
-RUN --mount=type=cache,target=/var/cache/apt \
-    --mount=type=cache,target=/var/lib/apt \
-    apt-get update && apt-get install -y \
-    postgresql-client \
-    chromium \
-    chromium-driver \
-    && rm -rf /var/lib/apt/lists/*
-
-# 非rootユーザーの作成
-RUN groupadd -r rails && useradd -r -g rails rails
-RUN chown -R rails:rails /app
-
-COPY --from=builder /usr/local/bundle /usr/local/bundle
-COPY --chown=rails:rails . .
-
-USER rails
-
-ENV RAILS_ENV=production
-CMD ["rails", "server", "-b", "0.0.0.0"]
+EXPOSE 3000
+CMD ["./bin/rails", "server", "-b", "0.0.0.0"]

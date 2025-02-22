@@ -21,26 +21,22 @@ services:
       timeout: 5s
       retries: 5
 
-  web: &web
-    build:
-      context: .
-      target: builder
-      dockerfile: Dockerfile
-      args:
-        BUILDKIT_INLINE_CACHE: 1
-    image: app:1.1.0
-    stdin_open: true
-    tty: true
+  web:
+    build: .
     volumes:
-      - .:/app:cached
-      - bundle:/usr/local/bundle
-      - rails_cache:/app/tmp/cache
+      - .:/app
+      - bundle:/usr/local/bundle:delegated
       - node_modules:/app/node_modules
+      - log:/app/log
     tmpfs:
-      - /app/tmp/pids
       - /tmp
+      - /app/tmp:uid=999,gid=995,mode=1777
+    user: app
     environment:
       BUNDLE_PATH: "/usr/local/bundle"
+      BUNDLE_APP_CONFIG: "/usr/local/bundle"
+      BUNDLE_BIN: "/usr/local/bundle/bin"
+      PATH: "/usr/local/bundle/bin:$PATH"
       BOOTSNAP_CACHE_DIR: "/app/vendor/bundle"
       WD_INSTALL_DIR: "/usr/local/bin"
       HISTFILE: "/app/log/.bash_history"
@@ -62,12 +58,12 @@ services:
     command: ["bin/dev"]
     expose: ["3000"]
     ports: ["3000:3000"]
-    user: rails
     working_dir: /app
 
 volumes:
   postgres:
   redis:
   bundle:
-  rails_cache:
   node_modules:
+  tmp:
+  log:
