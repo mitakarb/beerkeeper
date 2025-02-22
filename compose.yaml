@@ -12,19 +12,21 @@ services:
       - redis:/data
 
   web: &web
-    build: .
+    build:
+      context: .
+      target: builder  # 開発環境では builder ステージを使用
     image: app:1.1.0
     stdin_open: true
     tty: true
     volumes:
       - .:/app:cached
-      - bundle:/app/vendor/bundle
+      - bundle:/usr/local/bundle
       - rails_cache:/app/tmp/cache
     tmpfs:
       - /app/tmp/pids
       - /tmp
     environment:
-      BUNDLE_PATH: "/app/vendor/bundle"
+      BUNDLE_PATH: "/usr/local/bundle"
       BOOTSNAP_CACHE_DIR: "/app/vendor/bundle"
       WD_INSTALL_DIR: "/usr/local/bin"
       HISTFILE: "/app/log/.bash_history"
