@@ -3,11 +3,15 @@ updates:
 - package-ecosystem: bundler
   directory: "/"
   schedule:
-    interval: daily
-    time: "21:00"
+    interval: weekly
+    day: wednesday
+    time: "09:00"
+    timezone: "Asia/Tokyo"
   open-pull-requests-limit: 10
 - package-ecosystem: "github-actions"
   directory: "/"
   schedule:
-    interval: daily
-    time: "21:00"
+    interval: weekly
+    day: wednesday
+    time: "09:00"
+    timezone: "Asia/Tokyo"
