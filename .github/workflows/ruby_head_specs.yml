@@ -2,7 +2,8 @@ name: Ruby Head Specs
 
 on:
   schedule:
-    - cron: '0 0 * * 1-5'  # Run at midnight on weekdays
+    - cron: '0 0 * * 1-5'
+  workflow_dispatch:
 
 env:
   RAILS_ENV: test
@@ -10,8 +11,8 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-    continue-on-error: true  # Allow failures on Ruby head
-    timeout-minutes: 30      # Extended timeout for debug build
+    continue-on-error: true
+    timeout-minutes: 30
     services:
       db:
         image: postgres
