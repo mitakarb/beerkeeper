@@ -31,10 +31,9 @@ jobs:
           ruby-version: head
           bundler: latest
           bundler-cache: true
-          debug: true
       
       - name: Install Bundler dependencies
-        run: bundle install
+        run: bundle install --no-strict
       
       - name: Setup database
         run: bundle exec rails db:setup
