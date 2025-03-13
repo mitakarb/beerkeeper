@@ -1,0 +1,46 @@
+name: Ruby Head Specs
+
+on:
+  schedule:
+    - cron: '0 0 * * 1-5'  # Run at midnight on weekdays
+
+env:
+  RAILS_ENV: test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    continue-on-error: true  # Allow failures on Ruby head
+    timeout-minutes: 30      # Extended timeout for debug build
+    services:
+      db:
+        image: postgres
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Ruby (head)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: head
+          bundler: latest
+          bundler-cache: true
+          debug: true
+      
+      - name: Install Bundler dependencies
+        run: bundle install
+      
+      - name: Setup database
+        run: bundle exec rails db:setup
+        env:
+          BEERKEEPER_DATABASE_HOST: localhost
+      
+      - name: Run tests
+        run: bundle exec rspec
+        env:
+          BEERKEEPER_DATABASE_HOST: localhost
