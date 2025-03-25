@@ -33,10 +33,11 @@ services:
       REDIS_URL: "redis://redis:6379/"
       BINDING: "0.0.0.0"
       RAILS_MASTER_KEY:
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
     depends_on:
       - db
       - redis
-    command: ["bin/dev"]
+    command: ["bundle", "exec", "playwright", "install-deps"]
     expose: ["3000"]
     ports: ["3000:3000"]
     user: root
