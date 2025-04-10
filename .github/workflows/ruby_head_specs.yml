@@ -1,18 +1,16 @@
-name: Ruby Head Specs
+name: ruby head test
 
 on:
   schedule:
-    - cron: '0 0 * * 1-5'
-  workflow_dispatch:
-
-env:
-  RAILS_ENV: test
+    - cron: '0 1 * * 1-5' # 平日のJST10時
+  push:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  test:
+  ruby-head-test:
     runs-on: ubuntu-latest
-    continue-on-error: true
-    timeout-minutes: 30
     services:
       db:
         image: postgres
@@ -24,23 +22,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Set up Ruby (head)
-        uses: ruby/setup-ruby@v1
+
+      - uses: ./.github/composite/backend-test
         with:
-          ruby-version: head
-          bundler: latest
-          bundler-cache: true
-      
-      - name: Install Bundler dependencies
-        run: bundle install --no-strict
-      
-      - name: Setup database
-        run: bundle exec rails db:setup
-        env:
-          BEERKEEPER_DATABASE_HOST: localhost
-      
-      - name: Run tests
-        run: bundle exec rspec
-        env:
-          BEERKEEPER_DATABASE_HOST: localhost
+          custom-ruby-version: 'debug'

@@ -1,0 +1,37 @@
+inputs:
+  custom-ruby-version:
+    default: ''
+    description: 'ruby head用'
+
+runs:
+  using: "composite"
+  steps:
+    # HACK: 無理やり.ruby-versionを書き換えつつ、Gemfileの Ruby versionの指定を消す
+    - run: |
+        echo '${{ inputs.custom-ruby-version }}' > .ruby-version
+        sed -i "/^ruby \"/d" Gemfile
+      shell: bash
+      if: ${{ inputs.custom-ruby-version != '' }}
+
+    - name: setup Ruby
+      uses: ruby/setup-ruby@v1
+
+    # デバッグにわかりやすいようにバージョン情報を出力
+    - run: ruby -v
+      shell: bash
+      if: ${{ inputs.custom-ruby-version != '' }}
+
+    - name: Install Bundler dependencies
+      shell: bash
+      run: bundle install
+    - name: Setup database
+      shell: bash
+      run: bundle exec rails db:setup
+      env:
+        BEERKEEPER_DATABASE_HOST: localhost
+    - name: Run tests
+      shell: bash
+      run: bundle exec rspec
+      env:
+        BEERKEEPER_DATABASE_HOST: localhost
+
