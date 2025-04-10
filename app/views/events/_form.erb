@@ -1,32 +1,86 @@
-<%= form_with model: @event do |form| %>
-  <div class="field form-inline">
-    <%= form.label :start_at %>
-    <%= form.datetime_select :start_at, {}, class: "form-control" %>
-  </div>
+<%= form_with model: @event, class: "needs-validation" do |form| %>
+  <div class="container py-4">
+    <div class="row g-4">
+      <div class="col-md-12">
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0"><i class="bi bi-calendar-event me-2"></i>イベント日時</h5>
+          </div>
+          <div class="card-body bg-light">
+            <div class="mb-4">
+              <%= form.label :start_at, class: "form-label fw-bold" %>
+              <div class="d-flex align-items-center gap-2 flex-wrap">
+                <%= form.datetime_select :start_at,
+                    { order: [:year, :month, :day, :hour, :minute],
+                      use_month_numbers: true,
+                      date_separator: '年 ',
+                      datetime_separator: '日 ',
+                      time_separator: '時 ' },
+                    { class: "form-select shadow-sm", style: "width: auto; min-width: 80px;" } %>
+                <span class="text-muted">分</span>
+              </div>
+            </div>
+            <div class="mb-4">
+              <%= form.label :end_at, class: "form-label fw-bold" %>
+              <div class="d-flex align-items-center gap-2 flex-wrap">
+                <%= form.datetime_select :end_at,
+                    { order: [:year, :month, :day, :hour, :minute],
+                      use_month_numbers: true,
+                      date_separator: '年 ',
+                      datetime_separator: '日 ',
+                      time_separator: '時 ' },
+                    { class: "form-select shadow-sm", style: "width: auto; min-width: 80px;" } %>
+                <span class="text-muted">分</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="field form-inline">
-    <%= form.label :end_at %>
-    <%= form.datetime_select :end_at, {}, class: "form-control" %>
+      <div class="col-md-12">
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-success text-white">
+            <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>イベント詳細</h5>
+          </div>
+          <div class="card-body bg-light">
+            <div class="mb-4">
+              <%= form.label :name, class: "form-label fw-bold" %>
+              <%= form.text_field :name, class: "form-control shadow-sm", placeholder: "イベント名を入力してください" %>
+            </div>
+            <div class="mb-4">
+              <%= form.label :location, class: "form-label fw-bold" %>
+              <%= form.text_field :location, class: "form-control shadow-sm", placeholder: "開催場所を入力してください" %>
+            </div>
+            <div class="mb-4">
+              <%= form.label :max_size, class: "form-label fw-bold" %>
+              <%= form.number_field :max_size, class: "form-control shadow-sm", placeholder: "参加人数を入力してください" %>
+            </div>
+            <div class="mb-4">
+              <%= form.label :budget, class: "form-label fw-bold" %>
+              <%= form.text_field :budget, class: "form-control shadow-sm", placeholder: "参加費を入力してください" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-info text-white">
+            <h5 class="mb-0"><i class="bi bi-file-text me-2"></i>イベント説明</h5>
+          </div>
+          <div class="card-body bg-light">
+            <div class="mb-4">
+              <%= form.label :description, class: "form-label fw-bold" %>
+              <%= form.text_area :description, class: "form-control shadow-sm", rows: 5, placeholder: "イベントの詳細な説明を入力してください" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+      <%= link_to 'キャンセル', root_path, class: "btn btn-outline-secondary me-md-2 px-4" %>
+      <%= form.submit "保存", class: "btn btn-primary px-4" %>
+    </div>
   </div>
-  <div class="field form-group">
-    <%= form.label :location %>
-    <%= form.text_field :location, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :max_size %>
-    <%= form.number_field :max_size, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :budget %>
-    <%= form.text_field :budget, class: "form-control" %>
-  </div>
-  <div class="field form-group">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: "form-control" %>
-  </div>
-  <%= form.submit nil, class: "btn btn-primary" %>
 <% end %>
