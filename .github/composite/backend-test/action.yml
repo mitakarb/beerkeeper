@@ -18,15 +18,19 @@ runs:
 
     # デバッグにわかりやすいようにバージョン情報を出力
     - run: ruby -v
+      shell: bash
       if: ${{ inputs.custom-ruby-version != '' }}
 
     - name: Install Bundler dependencies
+      shell: bash
       run: bundle install
     - name: Setup database
+      shell: bash
       run: bundle exec rails db:setup
       env:
         BEERKEEPER_DATABASE_HOST: localhost
     - name: Run tests
+      shell: bash
       run: bundle exec rspec
       env:
         BEERKEEPER_DATABASE_HOST: localhost
