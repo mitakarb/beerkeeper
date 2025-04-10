@@ -3,7 +3,7 @@ name: ruby head test
 on:
   schedule:
     - cron: '0 1 * * 1-5' # 平日のJST10時
-
+  push:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
