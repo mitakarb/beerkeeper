@@ -9,6 +9,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     git \
     nodejs \
-    vim \
-    chromium \
-    chromium-driver
+    vim
+
+# Install Playwright dependencies
+RUN npx playwright install --with-deps
