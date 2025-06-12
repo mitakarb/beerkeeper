@@ -1,13 +1,23 @@
-<%= form_with url: "/signup", method: :post, model: @user do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+<%= form_with model: @user, url: "/signup", method: :post, local: true do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", id: "user_name" %>
   </div>
-  <%= form.submit 'Signup' %>
+
+  <div class="mb-3">
+    <%= form.label :email, "Email address", class: "form-label" %>
+    <%= form.email_field :email, class: "form-control", id: "user_email", aria: { describedby: "emailHelp" } %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password, class: "form-label" %>
+    <%= form.password_field :password, class: "form-control", id: "user_password" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password_confirmation, "Confirm Password", class: "form-label" %>
+    <%= form.password_field :password_confirmation, class: "form-control", id: "user_password_confirmation" %>
+  </div>
+
+  <%= form.submit "Signup", class: "btn btn-primary" %>
 <% end %>
