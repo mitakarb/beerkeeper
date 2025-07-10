@@ -96,25 +96,6 @@ Test utilities:
 
 5. **CI/CD**: Dependabot is configured for automated dependency updates. Check recent PRs for dependency update patterns.
 
-## Ruby Version Management (asdf)
-
-This project uses asdf for Ruby version management. If you encounter Ruby version issues:
-
-1. **Problem**: System Ruby (e.g., /usr/bin/ruby) is being used instead of asdf's Ruby
-2. **Solution**: Use asdf shims directly:
-   ```bash
-   # Instead of:
-   bundle exec rails command
-   
-   # Use:
-   ~/.asdf/shims/bundle exec rails command
-   ```
-3. **Verification**: Check which Ruby is being used:
-   ```bash
-   which ruby                    # May show /usr/bin/ruby
-   ~/.asdf/shims/ruby -v        # Shows correct version (3.4.1)
-   asdf current ruby             # Shows asdf's current Ruby
-   ```
 
 ## Key Directories
 
