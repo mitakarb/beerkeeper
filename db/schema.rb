@@ -10,16 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_12_122510) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
+ActiveRecord::Schema[8.0].define(version: 2022_05_12_122510) do
   create_table "events", force: :cascade do |t|
     t.datetime "start_at", precision: nil
     t.datetime "end_at", precision: nil
     t.string "location"
     t.string "name", null: false
-    t.bigint "organizer_id", null: false
+    t.integer "organizer_id", null: false
     t.integer "max_size"
     t.string "budget"
     t.text "description"
@@ -29,8 +26,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_122510) do
   end
 
   create_table "participations", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "event_id", null: false
+    t.integer "user_id", null: false
+    t.integer "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_participations_on_event_id"
