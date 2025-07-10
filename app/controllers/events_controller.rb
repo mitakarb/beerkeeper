@@ -28,6 +28,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'
     else
+
       render :new
     end
   end
@@ -37,7 +38,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to @event, notice: 'Event was successfully updated.'
     else
-      render :edit
+      render :edit, alert: 'Event creation failed.'
     end
   end
 
