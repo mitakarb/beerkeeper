@@ -162,7 +162,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-gnu)
       racc (~> 1.4)
-    pg (1.5.9)
+    pg (1.6.0-aarch64-linux)
+    pg (1.6.0-arm64-darwin)
+    pg (1.6.0-x86_64-linux)
     popper_js (2.11.8)
     pp (0.6.2)
       prettyprint
@@ -308,7 +310,7 @@ DEPENDENCIES
   factory_bot_rails
   importmap-rails
   jbuilder
-  pg (~> 1.5)
+  pg (~> 1.6)
   propshaft
   puma (~> 6.6)
   rails (~> 8.0.2)
