@@ -25,6 +25,6 @@ module Beerkeeper
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
-    config.view_component.preview_paths = ["#{Rails.root}/spec/components/previews"]
+    config.view_component.preview_paths << "#{Rails.root}/spec/components/previews"
   end
 end
