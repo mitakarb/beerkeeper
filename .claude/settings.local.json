@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(bundle install:*)",
+      "Bash(rbenv install:*)",
+      "Bash(git -C ~/.rbenv/plugins/ruby-build pull)",
+      "Bash(rbenv:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "defaultMode": "acceptEdits"
+  }
+}
