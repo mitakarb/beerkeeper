@@ -15,15 +15,13 @@ runs:
 
     - name: setup Ruby
       uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
 
     # デバッグにわかりやすいようにバージョン情報を出力
     - run: ruby -v
       shell: bash
       if: ${{ inputs.custom-ruby-version != '' }}
-
-    - name: Install Bundler dependencies
-      shell: bash
-      run: bundle install
     - name: Setup database
       shell: bash
       run: bundle exec rails db:setup
