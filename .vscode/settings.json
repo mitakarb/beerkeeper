@@ -1,19 +1,5 @@
 {
   "[ruby]": {
     "editor.tabSize": 2
-  },
-  "workbench.colorCustomizations": {
-    "activityBar.foreground": "#A2CAFF",
-    "activityBar.background": "#000F23",
-    "activityBar.inactiveForeground": "#045B75",
-    "activityBarBadge.foreground": "#1E0057",
-    "activityBarBadge.background": "#BE9CFF",
-    "statusBar.foreground": "#FFDFF1",
-    "statusBar.background": "#A63071",
-    "statusBarItem.hoverBackground": "#722D3C",
-    "statusBarItem.remoteForeground": "#FFD0C3",
-    "statusBarItem.remoteBackground": "#9B432C",
-    "statusBar.debuggingForeground": "#2A0017",
-    "statusBar.debuggingBackground": "#DC67A7"
   }
 }
