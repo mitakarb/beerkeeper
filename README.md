@@ -10,7 +10,7 @@ We welcome contributions! Please feel free to submit a Pull Request.
 
 # 環境構築
 
-- Ruby: 3.4.5
+- Ruby: 3.4.7
 - Rails: [`main`](https://github.com/rails/rails/tree/main)
 - DB: postgresql
 
