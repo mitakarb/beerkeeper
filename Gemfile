@@ -1,9 +1,9 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.4.1"
+ruby "3.4.7"
 
-gem "rails", "~> 8.0.2"
+gem "rails", "~> 8.0.3"
 
 gem "bcrypt", "~> 3.1.20"
 gem "bootsnap", require: false
@@ -13,7 +13,7 @@ gem "importmap-rails"
 gem "jbuilder"
 gem "sqlite3", "~> 2.5"
 gem "propshaft"
-gem "puma", "~> 6.6"
+gem "puma", "~> 7.0"
 gem "rails-i18n"
 gem "redis", "~> 5.4"
 gem "stimulus-rails"
