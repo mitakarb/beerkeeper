@@ -9,4 +9,19 @@ class Event < ApplicationRecord
   def organizer?(user)
     organizer_id == user&.id
   end
+
+  def full?
+    max_size && participations.count >= max_size
+  end
+
+  def receive(user)
+    transaction do
+      with_lock do
+        return false if full?
+
+        participation = participations.create(user:)
+        participation.persisted? ? participation : false
+      end
+    end
+  end
 end
