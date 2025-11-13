@@ -1,11 +1,4 @@
 services:
-  db:
-    image: postgres:17-alpine
-    volumes:
-      - postgres:/var/lib/postgresql/data
-    environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
-
   redis:
     image: redis:7-alpine
     volumes:
@@ -20,6 +13,7 @@ services:
       - .:/app:cached
       - bundle:/app/vendor/bundle
       - rails_cache:/app/tmp/cache
+      - storage:/app/storage
     tmpfs:
       - /app/tmp/pids
       - /tmp
@@ -29,12 +23,10 @@ services:
       WD_INSTALL_DIR: "/usr/local/bin"
       HISTFILE: "/app/log/.bash_history"
       EDITOR: "vi"
-      DATABASE_URL: "postgres://postgres:postgres@db:5432"
       REDIS_URL: "redis://redis:6379/"
       BINDING: "0.0.0.0"
       RAILS_MASTER_KEY:
     depends_on:
-      - db
       - redis
     command: ["bin/dev"]
     expose: ["3000"]
@@ -43,7 +35,7 @@ services:
     working_dir: /app
 
 volumes:
-  postgres:
   redis:
   bundle:
   rails_cache:
+  storage:

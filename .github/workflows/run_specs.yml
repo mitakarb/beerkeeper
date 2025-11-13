@@ -24,11 +24,11 @@ jobs:
           POSTGRES_PASSWORD: password
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
-      - name: Install Bundler dependencies
-        run: bundle install
+        with:
+          bundler-cache: true
       - name: Setup database
         run: bundle exec rails db:setup
         env:
