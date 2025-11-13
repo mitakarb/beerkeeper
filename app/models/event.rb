@@ -19,7 +19,8 @@ class Event < ApplicationRecord
       with_lock do
         return false if full?
 
-        participations.create(user:)
+        participation = participations.create(user:)
+        participation.persisted? ? participation : false
       end
     end
   end
