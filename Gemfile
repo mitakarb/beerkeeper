@@ -19,7 +19,7 @@ gem "redis", "~> 5.4"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem "view_component", "~> 4.0"
+gem "view_component", "~> 4.1"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
