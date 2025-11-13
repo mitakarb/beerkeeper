@@ -54,6 +54,18 @@ RSpec.describe Event, type: :model do
 
       it { expect(event).to be_full }
     end
+
+    context 'when max_size is null' do
+      let(:event) { FactoryBot.create(:event, max_size: nil) }
+
+      before do
+        5.times do
+          FactoryBot.create(:participation, user: FactoryBot.create(:user), event:)
+        end
+      end
+
+      it { expect(event).not_to be_full }
+    end
   end
 
   describe '#receive' do
