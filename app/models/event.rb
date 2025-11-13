@@ -9,4 +9,15 @@ class Event < ApplicationRecord
   def organizer?(user)
     organizer_id == user&.id
   end
+
+  def full?
+    participations.count >= max_size
+  end
+
+  def receive(user)
+    # TODO: handle race conditions
+    return false if full?
+
+    participations.create(user:)
+  end
 end
