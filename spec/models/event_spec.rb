@@ -38,7 +38,7 @@ RSpec.describe Event, type: :model do
   end
 
   describe '#full?' do
-    context 'when the number of participants is lesser then the max_size' do
+    context 'when the number of participants is less than the max_size' do
       let(:event) { FactoryBot.create(:event, max_size: 2) }
       it { expect(event).not_to be_full }
     end
