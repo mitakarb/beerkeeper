@@ -15,9 +15,12 @@ class Event < ApplicationRecord
   end
 
   def receive(user)
-    # TODO: handle race conditions
-    return false if full?
+    transaction do
+      with_lock do
+        return false if full?
 
-    participations.create(user:)
+        participations.create(user:)
+      end
+    end
   end
 end
