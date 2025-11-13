@@ -265,9 +265,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
-    sqlite3 (2.7.4-aarch64-linux-gnu)
-    sqlite3 (2.7.4-arm64-darwin)
-    sqlite3 (2.7.4-x86_64-linux-gnu)
+    sqlite3 (2.8.0-aarch64-linux-gnu)
+    sqlite3 (2.8.0-arm64-darwin)
+    sqlite3 (2.8.0-x86_64-linux-gnu)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.8)
@@ -323,7 +323,7 @@ DEPENDENCIES
   redis (~> 5.4)
   rspec-rails
   selenium-webdriver
-  sqlite3 (~> 2.7)
+  sqlite3 (~> 2.8)
   stimulus-rails
   turbo-rails
   tzinfo-data
