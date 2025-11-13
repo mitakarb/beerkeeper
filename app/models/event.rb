@@ -11,7 +11,7 @@ class Event < ApplicationRecord
   end
 
   def full?
-    participations.count >= max_size
+    max_size && participations.count >= max_size
   end
 
   def receive(user)
