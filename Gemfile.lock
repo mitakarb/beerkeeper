@@ -77,6 +77,42 @@ GEM
       uri (>= 0.13.1)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    async (2.35.0)
+      console (~> 1.29)
+      fiber-annotation
+      io-event (~> 1.11)
+      metrics (~> 0.12)
+      traces (~> 0.18)
+    async-container (0.27.7)
+      async (~> 2.22)
+    async-container-supervisor (0.9.2)
+      async-service
+      io-endpoint
+      memory (~> 0.7)
+      memory-leak (~> 0.5)
+      process-metrics
+    async-http (0.92.1)
+      async (>= 2.10.2)
+      async-pool (~> 0.11)
+      io-endpoint (~> 0.14)
+      io-stream (~> 0.6)
+      metrics (~> 0.12)
+      protocol-http (~> 0.49)
+      protocol-http1 (~> 0.30)
+      protocol-http2 (~> 0.22)
+      protocol-url (~> 0.2)
+      traces (~> 0.10)
+    async-http-cache (0.4.6)
+      async-http (~> 0.56)
+    async-pool (0.11.1)
+      async (>= 2.0)
+    async-service (0.16.0)
+      async
+      async-container (~> 0.16)
+      string-format (~> 0.2)
+    bake (0.24.1)
+      bigdecimal
+      samovar (~> 2.1)
     base64 (0.3.0)
     bcrypt (3.1.20)
     bigdecimal (3.3.1)
@@ -97,6 +133,10 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.5)
+    console (1.34.2)
+      fiber-annotation
+      fiber-local (~> 1.1)
+      json
     crass (1.0.6)
     dartsass-rails (0.5.1)
       railties (>= 6.0.0)
@@ -114,6 +154,23 @@ GEM
     factory_bot_rails (6.5.1)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
+    falcon (0.53.0)
+      async
+      async-container (~> 0.20)
+      async-container-supervisor (~> 0.6)
+      async-http (~> 0.75)
+      async-http-cache (~> 0.4)
+      async-service (~> 0.16)
+      bundler
+      localhost (~> 1.1)
+      openssl (~> 3.0)
+      protocol-http (~> 0.31)
+      protocol-rack (~> 0.7)
+      samovar (~> 2.3)
+    fiber-annotation (0.2.0)
+    fiber-local (1.1.0)
+      fiber-storage
+    fiber-storage (1.0.1)
     globalid (1.3.0)
       activesupport (>= 6.1)
     google-protobuf (4.28.2)
@@ -126,6 +183,9 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.8.1)
+    io-endpoint (0.16.0)
+    io-event (1.14.2)
+    io-stream (0.11.1)
     irb (1.15.3)
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
@@ -134,6 +194,7 @@ GEM
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
     json (2.16.0)
+    localhost (1.6.0)
     logger (1.7.0)
     loofah (2.24.1)
       crass (~> 1.0.2)
@@ -144,8 +205,15 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mapping (1.1.3)
     marcel (1.1.0)
     matrix (0.4.2)
+    memory (0.12.0)
+      bake (~> 0.15)
+      console
+      msgpack
+    memory-leak (0.7.0)
+    metrics (0.15.0)
     mini_mime (1.1.5)
     minitest (5.26.2)
     msgpack (1.8.0)
@@ -165,14 +233,31 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.10-x86_64-linux-gnu)
       racc (~> 1.4)
+    openssl (3.3.2)
     popper_js (2.11.8)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
+    process-metrics (0.8.0)
+      console (~> 1.8)
+      json (~> 2)
+      samovar (~> 2.1)
     propshaft (1.3.1)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
+    protocol-hpack (1.5.1)
+    protocol-http (0.55.0)
+    protocol-http1 (0.35.2)
+      protocol-http (~> 0.22)
+    protocol-http2 (0.23.0)
+      protocol-hpack (~> 1.4)
+      protocol-http (~> 0.47)
+    protocol-rack (0.18.0)
+      io-stream (>= 0.10)
+      protocol-http (~> 0.43)
+      rack (>= 1.0)
+    protocol-url (0.4.0)
     psych (5.2.6)
       date
       stringio
@@ -252,6 +337,9 @@ GEM
       rspec-support (~> 3.13)
     rspec-support (3.13.4)
     rubyzip (3.2.2)
+    samovar (2.4.1)
+      console (~> 1.0)
+      mapping (~> 1.0)
     sass-embedded (1.78.0-aarch64-linux-gnu)
       google-protobuf (~> 4.27)
     sass-embedded (1.78.0-arm64-darwin)
@@ -270,9 +358,11 @@ GEM
     sqlite3 (2.8.1-x86_64-linux-gnu)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
+    string-format (0.2.0)
     stringio (3.1.8)
     thor (1.4.0)
     timeout (0.4.4)
+    traces (0.18.2)
     tsort (0.2.0)
     turbo-rails (2.0.20)
       actionpack (>= 7.1.0)
@@ -314,6 +404,7 @@ DEPENDENCIES
   dartsass-rails (~> 0.5.1)
   debug
   factory_bot_rails
+  falcon
   importmap-rails
   jbuilder
   propshaft
