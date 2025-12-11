@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2022_05_12_122510) do
+ActiveRecord::Schema[8.1].define(version: 2025_12_11_121503) do
+  create_table "event_cancellations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "event_id", null: false
+    t.string "reason"
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_cancellations_on_event_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "budget"
     t.datetime "created_at", null: false
@@ -43,6 +51,7 @@ ActiveRecord::Schema[8.1].define(version: 2022_05_12_122510) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "event_cancellations", "events"
   add_foreign_key "events", "users", column: "organizer_id"
   add_foreign_key "participations", "events"
   add_foreign_key "participations", "users"
