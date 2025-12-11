@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  include Cancellable
+
   belongs_to :organizer, class_name: 'User'
   has_many :participations, dependent: :restrict_with_error
 
