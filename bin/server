@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+# サーバーを起動するラッパースクリプト
+# 環境変数 WEB_SERVER で切り替え可能:
+#   - puma (デフォルト)
+#   - falcon
+
+server = ENV.fetch("WEB_SERVER", "puma")
+host = ENV.fetch("HOST", "0.0.0.0")
+port = ENV.fetch("PORT", "3000")
+
+case server
+when "falcon"
+  exec "bundle", "exec", "falcon", "serve", "--bind", "http://#{host}:#{port}", "--count", "1"
+when "puma"
+  exec "bin/rails", "server", "-b", host, "-p", port
+else
+  puts "エラー: 未知のサーバー '#{server}'"
+  puts "WEB_SERVER に 'puma' か 'falcon' を指定してください"
+  exit 1
+end
