@@ -16,7 +16,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_11_121503) do
     t.integer "event_id", null: false
     t.string "reason"
     t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_event_cancellations_on_event_id"
+    t.index ["event_id"], name: "index_event_cancellations_on_event_id", unique: true
   end
 
   create_table "events", force: :cascade do |t|
