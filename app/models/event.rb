@@ -15,13 +15,20 @@ class Event < ApplicationRecord
   end
 
   def receive(user)
-    transaction do
-      with_lock do
-        return false if full?
+    return if full?
 
-        participation = participations.create(user:)
-        participation.persisted? ? participation : false
-      end
+    transaction do
+      participation = participations.create!(user:)
+
+      raise ActiveRecord::Rollback if overbook?
+
+      participation
     end
+  end
+
+  private
+
+  def overbook?
+    max_size && participations.count > max_size
   end
 end
