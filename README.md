@@ -11,8 +11,8 @@ We welcome contributions! Please feel free to submit a Pull Request.
 # 環境構築
 
 - Ruby: 3.4.7
-- Rails: [`main`](https://github.com/rails/rails/tree/main)
-- DB: postgresql
+- Rails: 8.1.1
+- DB: SQLite (development/test), Turso (production)
 
 ## Use Docker
 
