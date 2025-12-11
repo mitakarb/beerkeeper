@@ -25,6 +25,7 @@ services:
       EDITOR: "vi"
       REDIS_URL: "redis://redis:6379/"
       BINDING: "0.0.0.0"
+      WEB_SERVER: "${WEB_SERVER:-puma}"
       RAILS_MASTER_KEY:
     depends_on:
       - redis
