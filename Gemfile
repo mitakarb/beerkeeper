@@ -5,7 +5,7 @@ ruby "3.4.7"
 
 gem "rails", "~> 8.1.1"
 
-gem "bcrypt", "~> 3.1.20"
+gem "bcrypt", "~> 3.1.21"
 gem "bootsnap", require: false
 gem "bootstrap", "~> 5.3.5"
 gem "dartsass-rails", "~> 0.5.1"
