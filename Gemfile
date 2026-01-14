@@ -7,7 +7,7 @@ gem "rails", "~> 8.1.1"
 
 gem "bcrypt", "~> 3.1.21"
 gem "bootsnap", require: false
-gem "bootstrap", "~> 5.3.5"
+gem "bootstrap", "~> 5.3.8"
 gem "dartsass-rails", "~> 0.5.1"
 gem "importmap-rails"
 gem "jbuilder"
