@@ -22,8 +22,4 @@ test:
 
 production:
   <<: *default
-  # Turso configuration
-  # Set these environment variables in production:
-  # TURSO_DATABASE_URL: Your Turso database URL (e.g., libsql://[DATABASE].turso.io)
-  # TURSO_AUTH_TOKEN: Your Turso auth token
-  database: <%= ENV['TURSO_DATABASE_URL'] || 'storage/production.sqlite3' %>
+  database: storage/production.sqlite3
