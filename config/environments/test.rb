@@ -4,6 +4,10 @@
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+  # Do not require master key in test to avoid AEAD authentication errors.
+  config.require_master_key = false
+  config.credentials.key_path = "config/credentials/test.key"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # While tests run files are not watched, reloading is not necessary.
