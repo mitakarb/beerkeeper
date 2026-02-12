@@ -35,4 +35,5 @@ group :test do
   gem "factory_bot_rails"
   gem "rspec-rails"
   gem "selenium-webdriver"
+  gem "letter_opener", "~> 1.10"
 end
