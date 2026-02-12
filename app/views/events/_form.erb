@@ -9,16 +9,24 @@
           <div class="card-body bg-light">
             <div class="mb-4">
               <%= form.label :start_at, class: "form-label fw-bold" %>
-              <div class="d-flex align-items-center gap-2 flex-wrap">
-                <%= form.date_field 'date' %>
-                <%= form.time_field 'time' %>
+              <div class="row">
+                <div class="col col-2">
+                  <%= form.date_field 'date', class: "form-control shadow-sm" %>
+                </div>
+                <div class="col col-2">
+                  <%= form.time_field 'time', class: "form-control shadow-sm" %>
+                </div>
               </div>
             </div>
             <div class="mb-4">
               <%= form.label :end_at, class: "form-label fw-bold" %>
-              <div class="d-flex align-items-center gap-2 flex-wrap">
-                <%= form.date_field 'date' %>
-                <%= form.time_field 'time' %>
+              <div class="row">
+                <div class="col col-2">
+                  <%= form.date_field 'date', class: "form-control shadow-sm" %>
+                </div>
+                <div class="col col-2">
+                  <%= form.time_field 'time', class: "form-control shadow-sm" %>
+                </div>
               </div>
             </div>
           </div>
