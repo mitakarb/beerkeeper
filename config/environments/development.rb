@@ -1,6 +1,11 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  # Do not require master key in development to avoid AEAD authentication errors
+  # when config/master.key does not match config/credentials.yml.enc.
+  config.require_master_key = false
+  config.credentials.key_path = "config/credentials/development.key"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Make code changes take effect immediately without server restart.
