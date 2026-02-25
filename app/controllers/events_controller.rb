@@ -64,6 +64,35 @@ class EventsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.fetch(:event, {}).permit(:start_at, :end_at, :location, :name, :max_size, :budget, :description)
+      permitted = params.fetch(:event, {}).permit(
+        :start_at,
+        :end_at,
+        :start_at_date,
+        :start_at_time,
+        :end_at_date,
+        :end_at_time,
+        :location,
+        :name,
+        :max_size,
+        :budget,
+        :description
+      )
+
+      if permitted[:start_at_date].present? && permitted[:start_at_time].present?
+        permitted[:start_at] = parse_datetime(permitted[:start_at_date], permitted[:start_at_time])
+      end
+
+      if permitted[:end_at_date].present? && permitted[:end_at_time].present?
+        permitted[:end_at] = parse_datetime(permitted[:end_at_date], permitted[:end_at_time])
+      end
+      permitted.except(:start_at_date, :start_at_time, :end_at_date, :end_at_time)
+    end
+
+    def parse_datetime(date, time)
+      return nil if date.blank? || time.blank?
+
+      Time.zone.strptime("#{date} #{time}", "%Y-%m-%d %H:%M")
+    rescue ArgumentError
+      nil
     end
 end

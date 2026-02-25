@@ -9,28 +9,40 @@
           <div class="card-body bg-light">
             <div class="mb-4">
               <%= form.label :start_at, class: "form-label fw-bold" %>
-              <div class="d-flex align-items-center gap-2 flex-wrap">
-                <%= form.datetime_select :start_at,
-                    { order: [:year, :month, :day, :hour, :minute],
-                      use_month_numbers: true,
-                      date_separator: '年 ',
-                      datetime_separator: '日 ',
-                      time_separator: '時 ' },
-                    { class: "form-select shadow-sm", style: "width: auto; min-width: 80px;" } %>
-                <span class="text-muted">分</span>
+              <div class="row">
+                <div class="col col-2">
+                  <%= form.date_field :start_at,
+                      name: "event[start_at_date]",
+                      id: "event_start_at_date",
+                      value: @event.start_at&.to_date,
+                      class: "form-control shadow-sm" %>
+                </div>
+                <div class="col col-2">
+                  <%= form.time_field :start_at,
+                      name: "event[start_at_time]",
+                      id: "event_start_at_time",
+                      value: @event.start_at&.strftime("%H:%M"),
+                      class: "form-control shadow-sm" %>
+                </div>
               </div>
             </div>
             <div class="mb-4">
               <%= form.label :end_at, class: "form-label fw-bold" %>
-              <div class="d-flex align-items-center gap-2 flex-wrap">
-                <%= form.datetime_select :end_at,
-                    { order: [:year, :month, :day, :hour, :minute],
-                      use_month_numbers: true,
-                      date_separator: '年 ',
-                      datetime_separator: '日 ',
-                      time_separator: '時 ' },
-                    { class: "form-select shadow-sm", style: "width: auto; min-width: 80px;" } %>
-                <span class="text-muted">分</span>
+              <div class="row">
+                <div class="col col-2">
+                  <%= form.date_field :end_at,
+                      name: "event[end_at_date]",
+                      id: "event_end_at_date",
+                      value: @event.end_at&.to_date,
+                      class: "form-control shadow-sm" %>
+                </div>
+                <div class="col col-2">
+                  <%= form.time_field :end_at,
+                      name: "event[end_at_time]",
+                      id: "event_end_at_time",
+                      value: @event.end_at&.strftime("%H:%M"),
+                      class: "form-control shadow-sm" %>
+                </div>
               </div>
             </div>
           </div>
