@@ -1,3 +1,21 @@
-Event#participation_email
+<%= @user.name %> 様
 
-<%= @greeting %>, find me in app/views/event_mailer/participation_email.text.erb
+この度は「<%= @event.name %>」にご参加登録いただき、
+誠にありがとうございます。
+
+以下の内容で参加登録を受け付けました。
+
+------------------------------
+イベント名：<%= @event.name %>
+日時：<%= l(@event.start_at) %>
+場所：<%= @event.location %>
+------------------------------
+
+イベント詳細はこちら：
+<%= event_url(@event) %>
+
+当日お会いできることを楽しみにしております。
+どうぞよろしくお願いいたします。
+
+───────────────
+Beerkeeper運営チーム

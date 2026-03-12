@@ -5,8 +5,9 @@ class EventMailer < ApplicationMailer
   #   en.event_mailer.participation_email.subject
   #
   def participation_email
-    @greeting = "Hi"
+    @user = params[:user]
+    @event = params[:event]
 
-    mail to: "to@example.org"
+    mail to: @user.email, subject: "【#{@event.name}】参加登録を受け付けました"
   end
 end
