@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'
     else
-      flash[:alert] = "Event creation failed."
+      flash.now[:alert] = @event.errors.full_messages.join('、')
       render :new, status: :unprocessable_entity
     end
   end
@@ -38,7 +38,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to @event, notice: 'Event was successfully updated.'
     else
-      flash[:alert] = "Event update failed."
+      flash.now[:alert] = @event.errors.full_messages.join('、')
       render :edit, status: :unprocessable_entity
     end
   end
@@ -85,7 +85,7 @@ class EventsController < ApplicationController
       if permitted[:end_at_date].present? && permitted[:end_at_time].present?
         permitted[:end_at] = parse_datetime(permitted[:end_at_date], permitted[:end_at_time])
       end
-      permitted.except(:start_at_date, :start_at_time, :end_at_date, :end_at_time)
+      permitted
     end
 
     def parse_datetime(date, time)
