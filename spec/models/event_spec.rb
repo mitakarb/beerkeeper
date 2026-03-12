@@ -17,6 +17,27 @@ RSpec.describe Event, type: :model do
         it { expect(event).to be_invalid }
       end
     end
+
+    describe 'start_at and end_at' do
+      context 'start_atがend_atより前の場合' do
+        let(:event) { FactoryBot.build(:event, start_at: Time.current, end_at: Time.current + 1.hour) }
+
+        it { expect(event).to be_valid }
+      end
+
+      context 'start_atがend_atと同じ場合' do
+        let(:now) { Time.current }
+        let(:event) { FactoryBot.build(:event, start_at: now, end_at: now) }
+
+        it { expect(event).to be_invalid }
+      end
+
+      context 'start_atがend_atより後の場合' do
+        let(:event) { FactoryBot.build(:event, start_at: Time.current + 1.hour, end_at: Time.current) }
+
+        it { expect(event).to be_invalid }
+      end
+    end
   end
 
   describe '#organizer?' do
