@@ -42,3 +42,6 @@
 # Ignore test/spec files
 /spec
 /test
+
+# Ignore auto-generated litestream config
+/lib/tasks/litestream.rake
