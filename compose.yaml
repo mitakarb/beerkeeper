@@ -27,6 +27,8 @@ services:
       BINDING: "0.0.0.0"
       WEB_SERVER: "${WEB_SERVER:-puma}"
       RAILS_MASTER_KEY:
+      MAILTRAP_API_KEY:
+      MAILER_FROM_ADDRESS:
     depends_on:
       - redis
     command: ["bin/dev"]

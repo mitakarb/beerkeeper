@@ -68,6 +68,14 @@ Rails.application.configure do
   #   authentication: :plain
   # }
 
+  # Send emails using mailtrap
+  if (mailtrap_api_key = ENV['MAILTRAP_API_KEY'].presence)
+    config.action_mailer.delivery_method = :mailtrap
+    config.action_mailer.mailtrap_settings = {
+      api_key: mailtrap_api_key
+    }
+  end
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true

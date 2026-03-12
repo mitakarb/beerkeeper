@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <body style="font-family: Arial, sans-serif; line-height: 1.6;">
+    <p><%= @user.name %> 様</p>
+
+    <p>
+      この度は「<strong><%= @event.name %></strong>」にご参加登録いただき、
+      誠にありがとうございます。
+    </p>
+
+    <p>
+      以下の内容で参加登録を受け付けました。
+    </p>
+
+    <hr>
+
+    <p>
+      <strong>イベント名：</strong><%= @event.name %><br>
+      <strong>日時：</strong><%= l(@event.start_at) %><br>
+      <strong>場所：</strong><%= @event.location %>
+    </p>
+
+    <p>
+      詳細はこちらからご確認いただけます：<br>
+      <a href="<%= event_url(@event) %>"><%= event_url(@event) %></a>
+    </p>
+
+    <hr>
+
+    <p>
+      当日お会いできることを楽しみにしております。<br>
+      どうぞよろしくお願いいたします。
+    </p>
+
+    <p>
+      ───────────────<br>
+      Beerkeeper運営チーム
+    </p>
+  </body>
+</html>
