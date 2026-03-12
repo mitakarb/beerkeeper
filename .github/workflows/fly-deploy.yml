@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 jobs:
   deploy:
     name: Deploy app
@@ -15,5 +16,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl secrets set RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} MAILTRAP_API_KEY=${{ secrets.MAILTRAP_API_KEY }} MAILER_FROM_ADDRESS=${{ secrets.MAILER_FROM_ADDRESS }}
+      - run: flyctl secrets set "RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}" "MAILTRAP_API_KEY=${{ secrets.MAILTRAP_API_KEY }}" "MAILER_FROM_ADDRESS=${{ secrets.MAILER_FROM_ADDRESS }}"
       - run: flyctl deploy --remote-only
