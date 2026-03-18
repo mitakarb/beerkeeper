@@ -21,7 +21,7 @@ gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "view_component", "~> 4.2"
-gem "mailtrap", "~> 2.8"
+gem "mailtrap", "~> 2.9"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
