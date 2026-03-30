@@ -14,14 +14,14 @@
                   <%= form.date_field :start_at,
                       name: "event[start_at_date]",
                       id: "event_start_at_date",
-                      value: @event.start_at&.to_date,
+                      value: @event.start_at_date.presence || @event.start_at&.to_date,
                       class: "form-control shadow-sm" %>
                 </div>
                 <div class="col col-2">
                   <%= form.time_field :start_at,
                       name: "event[start_at_time]",
                       id: "event_start_at_time",
-                      value: @event.start_at&.strftime("%H:%M"),
+                      value: @event.start_at_time.presence || @event.start_at&.strftime("%H:%M"),
                       class: "form-control shadow-sm" %>
                 </div>
               </div>
@@ -33,14 +33,14 @@
                   <%= form.date_field :end_at,
                       name: "event[end_at_date]",
                       id: "event_end_at_date",
-                      value: @event.end_at&.to_date,
+                      value: @event.end_at_date.presence || @event.end_at&.to_date,
                       class: "form-control shadow-sm" %>
                 </div>
                 <div class="col col-2">
                   <%= form.time_field :end_at,
                       name: "event[end_at_time]",
                       id: "event_end_at_time",
-                      value: @event.end_at&.strftime("%H:%M"),
+                      value: @event.end_at_time.presence || @event.end_at&.strftime("%H:%M"),
                       class: "form-control shadow-sm" %>
                 </div>
               </div>
