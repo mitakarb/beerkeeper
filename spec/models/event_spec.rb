@@ -107,4 +107,17 @@ RSpec.describe Event, type: :model do
       it { expect(event.receive(user)).to be_falsey }
     end
   end
+
+  describe "default_scope" do
+    let(:event) { FactoryBot.create(:event) }
+    let(:cancelled_event) do
+      event = FactoryBot.create(:event))
+      event.cancel
+      event
+    end
+
+    it "中止されたeventはデフォルトでフィルターされる" do
+      expect(Event.all.count).to eq 1
+    end
+  end
 end

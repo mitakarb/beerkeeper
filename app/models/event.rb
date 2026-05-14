@@ -11,6 +11,8 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validate :end_at_after_start_at
 
+  default_scope { where(cancellation: nil) }
+
   def organizer?(user)
     organizer_id == user&.id
   end
