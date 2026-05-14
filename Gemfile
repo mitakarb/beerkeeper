@@ -13,14 +13,14 @@ gem "importmap-rails"
 gem "jbuilder"
 gem "sqlite3", "~> 2.9"
 gem "propshaft"
-gem "puma", "~> 7.2"
+gem "puma", "~> 8.0"
 gem "falcon"
 gem "rails-i18n"
 gem "redis", "~> 5.4"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem "view_component", "~> 4.2"
+gem "view_component", "~> 4.10"
 gem "mailtrap", "~> 2.10"
 
 group :development, :test do
