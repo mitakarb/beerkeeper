@@ -26,6 +26,24 @@ RSpec.describe "Events", type: :request do
       expect(event.end_at).to eq(Time.zone.local(2026, 3, 14, 21, 0))
       expect(response).to redirect_to(event_path(event))
     end
+
+    it 'イベント名が未入力のときはエラー内容を表示する' do
+      post events_path, params: {
+        event: {
+          start_at_date: '2026-03-14',
+          start_at_time: '18:30',
+          end_at_date: '2026-03-14',
+          end_at_time: '21:00',
+          name: ''
+        }
+      }
+
+      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response.body).to include('イベント名')
+      expect(response.body).to include('value="2026-03-14"')
+      expect(response.body).to include('value="18:30"')
+      expect(response.body).to include('value="21:00"')
+    end
   end
 
   describe 'PATCH /events/:id' do

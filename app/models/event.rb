@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  attr_accessor :start_at_date, :start_at_time, :end_at_date, :end_at_time
+
   belongs_to :organizer, class_name: 'User'
   has_many :participations, dependent: :restrict_with_error
 
