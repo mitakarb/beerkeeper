@@ -5,6 +5,7 @@ class Event < ApplicationRecord
   validates :start_at, presence: true
   validates :end_at, presence: true
   validates :name, presence: true
+  validate :end_at_after_start_at
 
   def organizer?(user)
     organizer_id == user&.id
@@ -30,5 +31,13 @@ class Event < ApplicationRecord
 
   def overbook?
     max_size && participations.count > max_size
+  end
+
+  def end_at_after_start_at
+    return if start_at.blank? || end_at.blank?
+
+    if end_at <= start_at
+      errors.add(:end_at, 'は開始日時より後にしてください')
+    end
   end
 end
