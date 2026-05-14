@@ -1,4 +1,4 @@
-class Event::CancellationsController < ApplicationController
+class Events::CancellationsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @event.cancel(params[:cancellation][:reason])
