@@ -83,7 +83,7 @@ GEM
       io-event (~> 1.11)
       metrics (~> 0.12)
       traces (~> 0.18)
-    async-container (0.35.0)
+    async-container (0.35.1)
       async (~> 2.22)
     async-http (0.95.1)
       async (>= 2.10.2)
@@ -100,7 +100,7 @@ GEM
       async-http (~> 0.56)
     async-pool (0.11.2)
       async (>= 2.0)
-    async-service (0.23.0)
+    async-service (0.24.1)
       async
       async-container (~> 0.34)
       string-format (~> 0.2)
@@ -131,7 +131,7 @@ GEM
       logger (~> 1.5)
     concurrent-ruby (1.3.6)
     connection_pool (3.0.2)
-    console (1.35.1)
+    console (1.36.0)
       fiber-annotation
       fiber-local (~> 1.1)
       json
@@ -152,7 +152,7 @@ GEM
     factory_bot_rails (6.5.1)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
-    falcon (0.55.4)
+    falcon (0.55.5)
       async
       async-container (~> 0.20)
       async-http (~> 0.75)
@@ -192,7 +192,7 @@ GEM
     jbuilder (2.14.1)
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
-    json (2.19.5)
+    json (2.19.8)
     launchy (3.1.1)
       addressable (~> 2.8)
       childprocess (~> 5.0)
