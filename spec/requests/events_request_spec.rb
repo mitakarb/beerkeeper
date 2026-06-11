@@ -7,6 +7,19 @@ RSpec.describe "Events", type: :request do
     post sessions_path, params: { email: user.email, password: 'password' }
   end
 
+  describe 'GET /events/:id' do
+    let!(:event) { create(:event, organizer: user) }
+
+    it '主催者にはキャンセルリンクを表示する' do
+      get event_path(event)
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include('キャンセルする')
+      expect(response.body).to include(event_cancellations_path(event))
+      expect(response.body).not_to include('このイベントを中止にする')
+    end
+  end
+
   describe 'POST /events' do
     it '日付と時刻の入力を開始日時と終了日時として保存する' do
       expect do
