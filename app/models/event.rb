@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
   attr_accessor :start_at_date, :start_at_time, :end_at_date, :end_at_time
 
+  include Cancellable
+
   belongs_to :organizer, class_name: 'User'
   has_many :participations, dependent: :restrict_with_error
 
@@ -8,6 +10,8 @@ class Event < ApplicationRecord
   validates :end_at, presence: true
   validates :name, presence: true
   validate :end_at_after_start_at
+
+  default_scope { where.missing(:cancellation) }
 
   def organizer?(user)
     organizer_id == user&.id
