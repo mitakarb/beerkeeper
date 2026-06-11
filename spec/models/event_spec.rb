@@ -117,8 +117,10 @@ RSpec.describe Event, type: :model do
     end
 
     it "中止されたeventはデフォルトでフィルターされる" do
-      expect(Event.unscoped.all).to include cancelled_event
-      expect(Event.all).not_to include cancelled_event
+      aggregate_failures do
+        expect(Event.unscoped.all).to include cancelled_event
+        expect(Event.all).not_to include cancelled_event
+      end
     end
   end
 end
