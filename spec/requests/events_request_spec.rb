@@ -18,6 +18,17 @@ RSpec.describe "Events", type: :request do
       expect(response.body).to include(event_cancellations_path(event))
       expect(response.body).not_to include('このイベントを中止にする')
     end
+
+    it '主催者以外にはキャンセルリンクを表示しない' do
+      other_user = create(:user, password: 'password', password_confirmation: 'password')
+      post sessions_path, params: { email: other_user.email, password: 'password' }
+
+      get event_path(event)
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).not_to include('キャンセルする')
+      expect(response.body).not_to include(event_cancellations_path(event))
+    end
   end
 
   describe 'POST /events' do
