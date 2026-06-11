@@ -9,6 +9,7 @@ RSpec.describe "Events", type: :request do
 
   describe 'GET /events/:id' do
     let!(:event) { create(:event, organizer: user) }
+    let!(:other_user) { create(:user) }
 
     it '主催者にはキャンセルリンクを表示する' do
       get event_path(event)
@@ -19,7 +20,6 @@ RSpec.describe "Events", type: :request do
     end
 
     it '主催者以外にはキャンセルリンクを表示しない' do
-      other_user = create(:user, password: 'password', password_confirmation: 'password')
       post sessions_path, params: { email: other_user.email, password: 'password' }
 
       get event_path(event)
