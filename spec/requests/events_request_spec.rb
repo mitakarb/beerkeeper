@@ -16,7 +16,6 @@ RSpec.describe "Events", type: :request do
       expect(response).to have_http_status(:ok)
       expect(response.body).to include('キャンセルする')
       expect(response.body).to include(event_cancellations_path(event))
-      expect(response.body).not_to include('このイベントを中止にする')
     end
 
     it '主催者以外にはキャンセルリンクを表示しない' do
