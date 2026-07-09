@@ -14,7 +14,7 @@
     主催者: <%= @event.organizer.name %>
   </li>
   <li class="list-group-item">
-    参加人数: <%= @event.max_size %>人
+    参加人数: <%= @event.participants.size %>人 / <%= @event.max_size %>人
   </li>
   <li class="list-group-item">
     参加費: <%= @event.budget %>円
