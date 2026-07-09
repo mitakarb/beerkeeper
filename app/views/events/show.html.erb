@@ -33,8 +33,8 @@
 
 参加者リスト
 <ul class="list-group">
-  <% @event.participations.each do |participation| %>
-    <li class="list-group-item"><%= participation.user.name %></li>
+  <% @event.participants.each do |participant| %>
+    <li class="list-group-item"><%= participant.name %></li>
   <% end %>
 </ul>
 
