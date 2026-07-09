@@ -20,8 +20,8 @@ gem "redis", "~> 5.4"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem "view_component", "~> 4.10"
-gem "mailtrap", "~> 2.10"
+gem "view_component", "~> 4.12"
+gem "mailtrap", "~> 2.11"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
