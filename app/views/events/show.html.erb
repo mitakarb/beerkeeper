@@ -31,6 +31,13 @@
   <% end %>
 </ul>
 
+参加者リスト
+<ul class="list-group">
+  <% @event.participations.each do |participation| %>
+    <li class="list-group-item"><%= participation.user.name %></li>
+  <% end %>
+</ul>
+
   <% if @event.organizer?(current_user) %>
     <div><%= link_to '編集', edit_event_path(@event) %></div>
     <div><%= link_to "キャンセルする", event_cancellations_url(@event), data: { turbo_method: :post, turbo_confirm: "本当に中止にしてよろしいですか?" } %></div>
