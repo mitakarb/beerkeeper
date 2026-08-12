@@ -9,8 +9,8 @@ console_command = '/rails/bin/rails console'
 
 [build]
 
-[deploy]
-  release_command = './bin/rails db:prepare'
+# release_command は専用の一時マシンで実行され data ボリュームがマウントされないため、
+# SQLite にマイグレーションを適用できない。マイグレーションは bin/docker-entrypoint が起動時に行う。
 
 [env]
   RAILS_LOG_TO_STDOUT = 'true'
