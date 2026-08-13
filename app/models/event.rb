@@ -5,6 +5,7 @@ class Event < ApplicationRecord
 
   belongs_to :organizer, class_name: 'User'
   has_many :participations, dependent: :restrict_with_error
+  has_many :participants, through: :participations, source: :user
 
   validates :start_at, presence: true
   validates :end_at, presence: true
