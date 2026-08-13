@@ -3,6 +3,6 @@ class Events::CancellationsController < ApplicationController
     @event = Event.find(params[:event_id])
     @event.cancel(params.dig(:cancellation, :reason))
 
-    redirect_to root_path, notice: 'イベントをキャンセルしました'
+    redirect_to root_path, notice: 'イベントを中止しました'
   end
 end

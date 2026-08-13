@@ -11,21 +11,21 @@ RSpec.describe "Events", type: :request do
     let!(:event) { create(:event, organizer: user) }
     let!(:other_user) { create(:user) }
 
-    it '主催者にはキャンセルリンクを表示する' do
+    it '主催者にはイベント中止リンクを表示する' do
       get event_path(event)
 
       expect(response).to have_http_status(:ok)
-      expect(response.body).to include('キャンセルする')
+      expect(response.body).to include('イベント中止')
       expect(response.body).to include(event_cancellations_path(event))
     end
 
-    it '主催者以外にはキャンセルリンクを表示しない' do
+    it '主催者以外にはイベント中止リンクを表示しない' do
       post sessions_path, params: { email: other_user.email, password: 'password' }
 
       get event_path(event)
 
       expect(response).to have_http_status(:ok)
-      expect(response.body).not_to include('キャンセルする')
+      expect(response.body).not_to include('イベント中止')
       expect(response.body).not_to include(event_cancellations_path(event))
     end
   end
