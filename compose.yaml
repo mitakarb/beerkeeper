@@ -5,7 +5,9 @@ services:
       - redis:/data
 
   web: &web
-    build: .
+    build:
+      context: .
+      target: build
     image: app:1.1.0
     stdin_open: true
     tty: true
@@ -18,7 +20,9 @@ services:
       - /app/tmp/pids
       - /tmp
     environment:
+      RAILS_ENV: development
       BUNDLE_PATH: "/app/vendor/bundle"
+      BUNDLE_WITHOUT: ""
       BOOTSNAP_CACHE_DIR: "/app/vendor/bundle"
       WD_INSTALL_DIR: "/usr/local/bin"
       HISTFILE: "/app/log/.bash_history"
