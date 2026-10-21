@@ -190,7 +190,7 @@ GEM
     jbuilder (2.15.1)
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
-    json (3.0.2)
+    json (3.1.0)
     launchy (3.1.1)
       addressable (~> 2.8)
       childprocess (~> 5.0)
@@ -365,9 +365,9 @@ GEM
       railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uri (1.1.1)
+    uri (1.1.2)
     useragent (0.16.11)
-    view_component (4.15.0)
+    view_component (4.16.0)
       actionview (>= 7.1.0)
       activesupport (>= 7.1.0)
       concurrent-ruby (~> 1)
@@ -415,7 +415,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
-  view_component (~> 4.15)
+  view_component (~> 4.16)
   web-console
 
 RUBY VERSION
