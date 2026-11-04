@@ -131,7 +131,7 @@ GEM
       fiber-annotation
       fiber-local (~> 1.1)
       json
-    crass (1.0.7)
+    crass (1.0.8)
     dartsass-rails (0.5.1)
       railties (>= 6.0.0)
       sass-embedded (~> 1.63)
